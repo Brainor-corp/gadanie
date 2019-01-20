@@ -25,10 +25,6 @@ function br_divination_load(){
 
         }
     }
-
-
-
-    require_once(BR_DIVINATION_DIR.'includes/core.php');
 }
 br_divination_load();
 
@@ -84,4 +80,4 @@ function br_divination_uninstall(){
  
     //действие при удалении
 }
-require_once(BR_DIVINATION_DIR.'includes/admin/functions.php');
+require_once(BR_DIVINATION_DIR.'includes/functions.php');

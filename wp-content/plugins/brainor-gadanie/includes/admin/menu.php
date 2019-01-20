@@ -3,7 +3,7 @@
 ПОдключение пунктов меню и страниц админки
 */
 add_action('admin_menu', function(){
-    $mainPage = add_menu_page( 'Гадания', 'BR_DIVINATION', 'manage_categories', 'br_divination_list', 'br_divination_list_page', '', 30 );
+    $mainPage = add_menu_page( 'Гадания', 'Гадания', 'manage_categories', 'br_divination_list', 'br_divination_list_page', '', 30 );
     if (!function_exists('add_br_divination_list_page_styles')) { // если ф-я уже есть в дочерней теме - нам не надо её определять
         function add_br_divination_list_page_styles() { // добавление стилей
             wp_enqueue_style( 'bs2', BR_DIVINATION_URL.'assets/css/bootstrap.min.css' ); // бутстрап;
@@ -17,7 +17,7 @@ add_action('admin_menu', function(){
         add_action('admin_enqueue_scripts', 'add_br_divination_list_page_scripts');
     }
     //Страница Элементов гаданий
-    $page = add_submenu_page( 'br_divination_elements', 'Элементы гаданий', 'Элементы гаданий', 'manage_categories', 'br_divination_elements', 'br_divination_elements_page' );
+    $page = add_submenu_page( 'br_divination_list', 'Элементы гаданий', 'Элементы гаданий', 'manage_categories', 'br_divination_elements', 'br_divination_elements_page' );
     if ( isset($_GET['page']) ) {
         if ($_GET['page'] == 'br_divination_elements' ) {
             if (!function_exists('add_br_divination_elements_page_styles')) { // если ф-я уже есть в дочерней теме - нам не надо её определять
