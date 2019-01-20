@@ -1,0 +1,566 @@
+/********************************************************************
+ * General
+ *******************************************************************/
+.wpshop-red-color {
+    color: #ff0927;
+}
+.wpshop-warning-color {
+    color: #ff8700;
+}
+
+
+/********************************************************************
+ * Export / Import settings
+ *******************************************************************/
+.wpshop-export-settings, .wpshop-import-settings, .wpshop-reset-settings {
+    border: 3px solid #c6dfff;
+    padding: 1.5em;
+    margin-bottom: 1em;
+}
+
+
+/********************************************************************
+ * Redirect Manager
+ *******************************************************************/
+.redirect-manager {
+    margin-bottom: 20px;
+}
+
+.redirect-manager-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.redirect-manager-item:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.redirect-manager-item input {
+    float: left;
+    width: 45%;
+}
+
+.redirect-manager-item__sep {
+    float: left;
+    width: 4%;
+    text-align: center;
+}
+
+.redirect-manager-item__del {
+    float: left;
+    width: 4%;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #f00;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+/********************************************************************
+ * New Options
+ *******************************************************************/
+.option-field * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.option-field-header {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 1.5em;
+    border-left: 7px solid #70b8ba;
+    margin-left: -25px;
+    padding: 7px 0 7px 17px;
+}
+
+.option-field {
+    position: relative;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.option-field:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.option-field-label {
+    width: 30%;
+    float: left;
+}
+
+.option-field-body {
+    width: 70%;
+    float: left;
+}
+
+.option-field-tooltip {
+    display: none;
+    position: absolute;
+    top: 80%;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 2px 27px -5px rgba(90, 145, 150, 0.8);
+    z-index: 999;
+    padding: 10px 15px;
+}
+
+.option-field-tooltip:before {
+    content: '';
+    position: absolute;
+    top: -11px;
+    left: 150px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #d0dada transparent;
+    z-index: 990;
+}
+
+.option-field-tooltip:after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 150px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #ffffff transparent;
+    z-index: 991;
+}
+
+
+/********************************************************************
+ * Pseudo Checkbox
+ */
+.pseudo-checkbox {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+    border-radius: 13px;
+    background: #CDD1DA;
+    box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+    cursor: pointer;
+}
+
+.pseudo-checkbox:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0 2px 5px rgba(0,0,0,.3);
+    transition: all .2s;
+}
+
+.pseudo-checkbox.checked {
+    background: #75d2b4;
+}
+
+.pseudo-checkbox.checked:after {
+    left: 26px;
+}
+
+.pseudo-checkbox.focused {
+    box-shadow: 0 0 0 3px rgba(255,255,0,.5);
+}
+
+.pseudo-checkbox-hidden {
+    display: none !important;
+}
+
+
+
+
+
+/* Tabs
+   ========================================================================== */
+.wp-clearfy-tab {
+    display: none;
+}
+
+.wp-clearfy-tab.active {
+    display: block;
+}
+
+
+/* Top links
+   ========================================================================== */
+.clearfy-recommend {
+    display: block;
+    color: #179347;
+    font-size: .8em;
+}
+
+.wp-clearfy-tab p.description {
+    padding-left: 25px;
+    font-size: 13px;
+    font-style: normal;
+    margin: .7em 0;
+}
+
+.wp-clearfy-tab label {
+    font-size: 14px;
+}
+
+.pseudo-button {
+    display: inline-block;
+    border: 2px solid #6da8e1;
+    padding: 7px 20px;
+    cursor: pointer;
+}
+.pseudo-button:hover {
+    background: #6da8e1;
+    color: #fff;
+}
+.pseudo-button__green {
+    border-color: #00C76D;
+}
+.pseudo-button__green:hover {
+    background: #00C76D;
+}
+.pseudo-button__gray {
+    border-color: #77939f;
+    color: #999;
+}
+.pseudo-button__gray:hover {
+    background: #77939f;
+}
+p.description.danger {
+    color: #dd2b19;
+}
+.wpshopbiz-plugin-info {
+    float: right;
+}
+
+
+
+
+/* settings item yU65zNDc4MjU0fh&dx4h1
+   ========================================================================== */
+.clearfy-settings-item {
+
+}
+
+.clearfy-settings-item:after {
+    content: '';
+    display: table;
+    width: 100%;
+    height: 1px;
+    clear: both;
+}
+
+.clearfy-settings-item label {
+    width: 200px;
+    float: left;
+}
+
+.clearfy-settings-item p.description {
+    padding-left: 0;
+}
+
+.clearfy-fieldset {
+    margin-bottom: 20px;
+}
+
+.clearfy-fieldset p.description {
+    padding-left: 61px;
+}
+
+
+
+
+/* ==========================================================================
+   Changelog
+   ========================================================================== */
+.clearfy-changelog {
+    padding: 20px 15px;
+    border-left: 1px solid #ccc;
+    margin-left: 10px;
+}
+
+.clearfy-changelog__item {
+    position: relative;
+    padding-left: 60px;
+}
+
+.clearfy-changelog__item:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: -23px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.clearfy-changelog__version {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+
+/********************************************************************
+ * Layout
+ *******************************************************************/
+.wpshop * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.wpshop-cols {
+
+}
+
+.wpshop-cols:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.wpshop-col-left {
+    width: 75%;
+    float: left;
+}
+
+.wpshop-col-right {
+    width: 20%;
+    float: right;
+    padding-top: 20px;
+}
+
+.wp-picker-container * {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.wpshop-table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+
+.wpshop-table th,
+.wpshop-table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.wpshop-table thead th {
+    text-align: left;
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.wpshop-table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+}
+
+.wpshop-table tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.clearfy-table-404 td:nth-child(2) {
+    word-break: break-word;
+}
+
+/********************************************************************
+ * Widgets
+ */
+
+.wpshop-widget {
+    margin-bottom: 35px;
+}
+
+.wpshop-widget-news {
+
+}
+
+.wpshop-widget-news ul li {
+    margin-bottom: 15px;
+}
+
+
+/********************************************************************
+ * Tabs
+ *******************************************************************/
+
+.wpshop-tab-wrapper {
+    margin: 0;
+    padding-top: 9px;
+    padding-bottom: 0;
+    line-height: inherit;
+}
+
+.wpshop-tab-wrapper:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.wpshop-tab {
+    float: left;
+    border-bottom: none;
+    padding: 7px 20px;
+    font-size: 14px;
+    line-height: 24px;
+    background: #fbfbfb;
+    color: #777;
+    text-decoration: none;
+    margin-right: 7px;
+    box-shadow: inset 0 -2px 5px rgba(0,0,0,.05);
+    border-top: 2px solid #ccc;
+    border-bottom: 1px solid #e6e6e6;
+    outline: none;
+}
+
+.wpshop-tab:focus,
+.wpshop-tab:active {
+    outline: none;
+    box-shadow: none;
+}
+
+.wpshop-tab-active {
+    background: #fff;
+    color: #000;
+    box-shadow: none;
+    border-top: 2px solid #ffc93d;
+    border-bottom: 1px solid #fff;
+}
+
+
+.wpshop-tab-in {
+    display: none;
+    padding: 25px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+}
+.wpshop-tab-in.active {
+    display: block;
+}
+
+
+/********************************************************************
+ * Instruction
+ *******************************************************************/
+.wpshop-instruction {
+    position: relative;
+    border: 2px solid #83c9c8;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+.wpshop-instruction-expand {
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #83c9c8;
+    border-bottom: 2px solid #83c9c8;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.wpshop-instruction-header {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.wpshop-instruction-body {
+    display: none;
+    padding-top: 10px;
+}
+
+.wpshop-instruction-body p {
+    margin: 15px 0 ;
+}
+
+
+/********************************************************************
+ * Settings
+ *******************************************************************/
+
+.wpshop-settings-item {
+    margin: 20px 0;
+}
+
+.wpshop-settings-item:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.wpshop-settings-item label {
+    float: left;
+    width: 200px;
+    padding-top: 5px;
+}
+
+.wpshop-settings-item-body {
+    float: left;
+}
+
+
+
+
+
+
+.clearfy fieldset .description {
+    padding-left: 25px;
+    margin: .4em 0;
+}
+
+.clearfy .robots-text textarea {
+    display: block;
+    width: 100%;
+    height: 160px;
+}
+
+.clearfy .last-modified-text {
+}
+
+.clearfy .last-modified-text textarea {
+    display: block;
+    width: 100%;
+    height: 80px;
+}
+
+.clearfy .last-modified-text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.clearfy .last-modified-text .description {
+    padding-left: 0;
+}
