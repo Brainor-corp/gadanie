@@ -33,3 +33,9 @@
 }
 
 .divination .t_card a:hover{top:-10px;bottom:10px;}
+
+.divination .desk .desk-left,
+.divination .desk .desk-right {
+    display: inline-block;
+    width: 50%;
+}
