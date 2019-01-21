@@ -27,15 +27,36 @@
     background-size: contain;
 }
 
+.divination .desk {
+    margin: 15px;
+}
+
+.divination .desk .desk-left .navigation div {
+    text-align: center;
+}
+
+.divination .desk .desk-card a {
+    width: 66px;
+    height: 126px;
+    display: inline-block;
+    background: url(http://www.onlinegadanie.ru/wp-content/themes/onlinegadanie/images/taro/taro_rubashka.png) no-repeat;
+    position: relative;
+    overflow: hidden;
+    top: 0;
+    background-size: contain!important;
+    background-repeat: no-repeat !important;
+}
+
 .divination .ca {
-    color: white;
     padding-left: 5px;
 }
 
 .divination .t_card a:hover{top:-10px;bottom:10px;}
 
-.divination .desk .desk-left,
-.divination .desk .desk-right {
-    display: inline-block;
-    width: 50%;
+.divination .text-white {
+    color: white !important;
+}
+
+.divination .hidden-card {
+    color: white;
 }

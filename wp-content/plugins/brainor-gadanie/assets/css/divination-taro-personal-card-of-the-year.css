@@ -1,0 +1,12 @@
+.divination .desk .desk-left,
+.divination .desk .desk-right {
+    display: inline-block;
+    width: 49%;
+    float: left;
+}
+
+.divination .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
