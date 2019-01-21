@@ -1,0 +1,35 @@
+.divination .taro_bg {
+    background: url(http://www.onlinegadanie.ru/wp-content/themes/onlinegadanie/images/bg_lost.jpg) repeat;
+    width: 100%;
+    padding-top: 5px;
+    height: 450px;
+}
+
+.divination .t_card {
+    padding: 11px 0 5px 60px;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.divination .t_card a {
+    width: 66px;
+    height: 126px;
+    float: left;
+    margin: 0 0 0 -55px;
+    background: url(http://www.onlinegadanie.ru/wp-content/themes/onlinegadanie/images/taro/taro_rubashka.png) no-repeat;
+    position: relative;
+    overflow: hidden;
+    top: 0;
+    -moz-transition: top.1s linear;
+    -webkit-transition: top.1s linear;
+    -o-transition: top.1s linear;
+    transition: top.1s linear;
+    background-size: contain;
+}
+
+.divination .ca {
+    color: white;
+    padding-left: 5px;
+}
+
+.divination .t_card a:hover{top:-10px;bottom:10px;}

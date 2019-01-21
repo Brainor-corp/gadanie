@@ -19,6 +19,10 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "first":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/first/index.php');
                     break;
+                case "personal-card-of-the-year":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/personal-card-of-the-year.php');
+                    break;
+                default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
             echo '[divination_error: не задан слаг]';
