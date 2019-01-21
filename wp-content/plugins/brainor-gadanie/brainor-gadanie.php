@@ -45,22 +45,58 @@ function br_divination_activation() {
             `name` VARCHAR (512) NOT NULL,
             `slug` VARCHAR (512) NOT NULL,
             `description` TEXT,
-            `thump` VARCHAR (1024),
+            `thumb` VARCHAR (1024),
             UNIQUE KEY id (id)
         ){$charset_collate}";
 
 
         dbDelta($sql); # . создаём новую таблицу
     }
+
+    //Добавляем гадания в базу
+    $values = array();
+    $place_holders = array( '%s', '%s');
+
+    $values[] = ['name'=>'Персональная карта года', 'slug'=>'personal-card-of-the-year'];
+
+    foreach ($values as $value){
+        $wpdb->insert(
+            $table_name,
+            array(
+                'name' => $value['name'],
+                'slug' => $value['slug']
+            ),
+            $place_holders
+        );
+    }
+    //КОНЕЦ Добавляем гадания в базу
+
     $table_name = $wpdb->get_blog_prefix() . 'br_divination_elements';
     if($wpdb->get_var("SHOW TABLES LIKE ".$table_name."") != $table_name) { # если таблица настроек плагина еще не создана - создаём
 
         $sql = "CREATE TABLE {$table_name} (
             `id` BIGINT (20) NOT NULL AUTO_INCREMENT,
             `name` VARCHAR (512) NOT NULL,
+            `class` VARCHAR (32),
             `divination_id` BIGINT (20),
             `description` TEXT,
-            `thump` VARCHAR (1024),
+            `thumb` VARCHAR (1024),
+            UNIQUE KEY id (id)
+        ){$charset_collate}";
+
+
+        dbDelta($sql); # . создаём новую таблицу
+    }
+
+    $table_name = $wpdb->get_blog_prefix() . 'br_divination_elements_pivot';
+    if($wpdb->get_var("SHOW TABLES LIKE ".$table_name."") != $table_name) { # если таблица настроек плагина еще не создана - создаём
+
+        $sql = "CREATE TABLE {$table_name} (
+            `id` BIGINT (20) NOT NULL AUTO_INCREMENT,
+            `divination_id` BIGINT (20),
+            `divination_element_id` BIGINT (20),
+            `description` TEXT,
+            `thumb` VARCHAR (1024),
             UNIQUE KEY id (id)
         ){$charset_collate}";
 
