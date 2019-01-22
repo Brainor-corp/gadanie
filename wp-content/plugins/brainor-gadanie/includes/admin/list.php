@@ -17,7 +17,7 @@
                     $divinationTable,
                     array(
                         'name' => $_POST['name'],
-                        'slug' => sanitize_title($_POST['name']),
+                        'slug' => $_POST['slug'],
                         'description' => $_POST['description'],
                         'thumb' => $_POST['thumb'],
                         'created_at' => date("Y-m-d H:i:s"),
