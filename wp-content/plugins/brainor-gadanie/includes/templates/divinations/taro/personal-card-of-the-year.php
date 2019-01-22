@@ -5,7 +5,9 @@
 <div class="divination" data-card-count="1">
     <div class="taro_bg">
         <div class="hand">
-            <span class="ca text-white">Выберите карту:</span>
+            <div class="help-block">
+                <span class="ca text-white" id="currentAction">Выберите карту:</span>
+            </div>
             <div class="t_card" id="divination">
                 <?php for($i = 0; $i < 20; $i++) { ?>
                     <a href="#" class="hand-card" onclick="return false"></a>
@@ -17,6 +19,8 @@
 <!--                Менять эту часть НАЧАЛО -->
                 <div class="desk-cards">
                     <div class="desk-card" id="desk-card-1">
+                        <small>1</small>
+                        <br>
                         <a href="#" onclick="return false"></a>
                     </div>
                 </div>
@@ -32,7 +36,7 @@
                 </div>
             </div>
             <div class="desk-right">
-                <div class="hidden-card card-0">
+                <div class="hidden-card card-0" id="hidden-card-0">
                     <span class="text-white">1. Значение</span>
                 </div>
                 <?php for($i = 1; $i <= 78; $i++) { ?>

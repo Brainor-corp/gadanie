@@ -1,5 +1,5 @@
 .divination .taro_bg {
-    background: url(http://www.onlinegadanie.ru/wp-content/themes/onlinegadanie/images/bg_lost.jpg) repeat;
+    background: url(/wp-content/plugins/brainor-gadanie/assets/imgs/taro/bg_lost.jpg) repeat;
     width: 100%;
     padding-top: 5px;
     height: 450px;
@@ -16,7 +16,7 @@
     height: 126px;
     float: left;
     margin: 0 0 0 -55px;
-    background: url(http://www.onlinegadanie.ru/wp-content/themes/onlinegadanie/images/taro/taro_rubashka.png) no-repeat;
+    background: url(/wp-content/plugins/brainor-gadanie/assets/imgs/taro/taro_rubashka.png) no-repeat;
     position: relative;
     overflow: hidden;
     top: 0;
@@ -39,7 +39,7 @@
     width: 66px;
     height: 126px;
     display: inline-block;
-    background: url(http://www.onlinegadanie.ru/wp-content/themes/onlinegadanie/images/taro/taro_rubashka.png) no-repeat;
+    background: url(/wp-content/plugins/brainor-gadanie/assets/imgs/taro/taro_rubashka.png) no-repeat;
     position: relative;
     overflow: hidden;
     top: 0;
@@ -59,4 +59,47 @@
 
 .divination .hidden-card {
     color: white;
+}
+
+.divination h1,
+.divination h2 {
+    margin-top: 0px;
+}
+
+.divination .navigation button {
+    cursor: pointer;
+    background: none !important;
+    box-shadow: none !important;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: white;
+    width: 180px;
+}
+
+.divination .navigation button:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.divination .desk .desk-right {
+    margin-top: -150px;
+    max-height: 375px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.divination .desk .desk-left,
+.divination .desk .desk-right {
+    display: inline-block;
+    width: 49%;
+    float: left;
+}
+
+.divination .desk-cards .desk-card {
+    text-align: center;
+    color: white;
+}
+
+.divination .help-block {
+    height: 24px;
 }
