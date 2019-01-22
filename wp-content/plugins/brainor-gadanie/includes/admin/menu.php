@@ -12,7 +12,8 @@ add_action('admin_menu', function(){
     }
     if (!function_exists('add_br_divination_list_page_scripts')) { // если ф-я уже есть в дочерней теме - нам не надо её определять
         function add_br_divination_list_page_scripts() {
-//            ...
+            wp_enqueue_script('jquery_custom', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', '', '', false);
+            wp_enqueue_script('admin.divination.edit', BR_DIVINATION_URL.'assets/js/admin.divination.edit.js','','',true);
         }
         add_action('admin_enqueue_scripts', 'add_br_divination_list_page_scripts');
     }

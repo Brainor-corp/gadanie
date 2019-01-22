@@ -16,7 +16,8 @@ function br_divination_load(){
     add_action('admin_enqueue_scripts', 'add_br_divination_scripts'); // приклеем ф-ю на добавление скриптов в футер
     if (!function_exists('add_br_divination_scripts')) { // если ф-я уже есть в дочерней теме - нам не надо её определять
         function add_br_divination_scripts() { // добавление скриптов
-            wp_enqueue_script('bootstrap', BR_DIVINATION_URL.'assets/js/bootstrap.min.js','','',true); // бутстрап
+            wp_enqueue_script('popper', BR_DIVINATION_URL.'assets/js/popper.min.js','','',true);
+            wp_enqueue_script('bootstrap', BR_DIVINATION_URL.'assets/js/bootstrap.min.js','','',true);
         }
     }
     add_action('admin_print_styles', 'add_br_divination_styles'); // приклеем ф-ю на добавление скриптов в футер
@@ -46,6 +47,7 @@ function br_divination_activation() {
             `slug` VARCHAR (512) NOT NULL,
             `description` TEXT,
             `thumb` VARCHAR (1024),
+            `created_at` DATETIME,
             UNIQUE KEY id (id)
         ){$charset_collate}";
 
@@ -57,14 +59,15 @@ function br_divination_activation() {
     $values = array();
     $place_holders = array( '%s', '%s');
 
-    $values[] = ['name'=>'Персональная карта года', 'slug'=>'personal-card-of-the-year'];
+    $values[] = ['name'=>'Персональная карта года', 'slug'=>'personal-card-of-the-year', 'created_at'=>date("Y-m-d H:i:s")];
 
     foreach ($values as $value){
         $wpdb->insert(
             $table_name,
             array(
                 'name' => $value['name'],
-                'slug' => $value['slug']
+                'slug' => $value['slug'],
+                'created_at' => $value['created_at']
             ),
             $place_holders
         );
@@ -77,10 +80,11 @@ function br_divination_activation() {
         $sql = "CREATE TABLE {$table_name} (
             `id` BIGINT (20) NOT NULL AUTO_INCREMENT,
             `name` VARCHAR (512) NOT NULL,
+            `slug` VARCHAR (512) NOT NULL,
             `class` VARCHAR (32),
-            `divination_id` BIGINT (20),
             `description` TEXT,
             `thumb` VARCHAR (1024),
+            `created_at` DATETIME,
             UNIQUE KEY id (id)
         ){$charset_collate}";
 
