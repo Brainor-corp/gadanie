@@ -22,6 +22,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "personal-card-of-the-year":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/personal-card-of-the-year.php');
                     break;
+                case "future-husband":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/future-husband.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{

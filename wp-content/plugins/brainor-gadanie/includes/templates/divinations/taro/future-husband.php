@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/wp-content/plugins/brainor-gadanie/assets/css/divination-taro-personal-card-of-the-year.css">
 <script src="/wp-content/plugins/brainor-gadanie/assets/js/divination-taro.js"></script>
 
-<div class="divination" data-card-count="1" id="<?php echo uniqid() ?>">
+<div class="divination" data-card-count="2" id="<?php echo uniqid() ?>">
     <div class="taro_bg">
         <div class="hand">
             <div class="help-block">
@@ -16,15 +16,20 @@
         </div>
         <div class="desk">
             <div class="desk-left">
-<!--                Менять эту часть НАЧАЛО -->
+                <!--                Менять эту часть НАЧАЛО -->
                 <div class="desk-cards">
                     <div class="desk-card" id="desk-card-1">
                         <small>1</small>
                         <br>
                         <a href="#" onclick="return false"></a>
                     </div>
+                    <div class="desk-card" id="desk-card-2">
+                        <small>2</small>
+                        <br>
+                        <a href="#" onclick="return false"></a>
+                    </div>
                 </div>
-<!--                Менять эту часть КОНЕЦ-->
+                <!--                Менять эту часть КОНЕЦ-->
 
                 <div class="navigation">
                     <div>
