@@ -21,7 +21,7 @@ $sql = '
     from '.$divinationTable.' D
     LEFT JOIN '.$divinationPivotTable.' DP on DP.divination_id = D.id
     LEFT JOIN '.$divinationElementsTable.' DE on DP.divination_element_id = DE.id
-    ORDER BY D.id DESC';
+    ORDER BY D.id ASC';
 $divination = $wpdb->get_row( $sql , ARRAY_A );
 
 $str3 = str_replace("\n","", str_replace("\r","", $divination['elements']));
