@@ -9,6 +9,7 @@ $divinationTable = $wpdb->get_blog_prefix().'br_divinations';
 $divinationElementsTable = $wpdb->get_blog_prefix().'br_divination_elements';
 $divinationPivotTable = $wpdb->get_blog_prefix().'br_divination_elements_pivot';
 
+$slug = 'personal-card-of-the-year';
 $sql = '
     SELECT 
         D.id,
@@ -21,6 +22,7 @@ $sql = '
     from '.$divinationTable.' D
     LEFT JOIN '.$divinationPivotTable.' DP on DP.divination_id = D.id
     LEFT JOIN '.$divinationElementsTable.' DE on DP.divination_element_id = DE.id
+    WHERE D.slug = \''.$slug.'\'
     ORDER BY D.id ASC';
 $divination = $wpdb->get_row( $sql , ARRAY_A );
 
