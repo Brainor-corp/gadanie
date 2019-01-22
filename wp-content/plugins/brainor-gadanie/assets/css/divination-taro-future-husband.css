@@ -1,0 +1,9 @@
+.divination .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.future-husband .taro_bg {
+    height: 750px !important;
+}
