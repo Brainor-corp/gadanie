@@ -96,12 +96,10 @@ function br_divination_activation() {
     if($wpdb->get_var("SHOW TABLES LIKE ".$table_name."") != $table_name) { # если таблица настроек плагина еще не создана - создаём
 
         $sql = "CREATE TABLE {$table_name} (
-            `id` BIGINT (20) NOT NULL AUTO_INCREMENT,
             `divination_id` BIGINT (20),
             `divination_element_id` BIGINT (20),
             `description` TEXT,
-            `thumb` VARCHAR (1024),
-            UNIQUE KEY id (id)
+            `thumb` VARCHAR (1024)
         ){$charset_collate}";
 
 

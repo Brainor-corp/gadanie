@@ -10,22 +10,46 @@
     <?php if(isset($_GET['type'])):?>
         <?php if($_GET['type'] == 'edit'):?>
             <?php
-                if(isset($_POST['name'])){
-                    $divinationElementsTable = $wpdb->get_blog_prefix().'br_divination_elements';
-                    $wpdb->insert(
-                        $divinationElementsTable,
-                        array(
-                            'name' => $_POST['name'],
-                            'slug' => sanitize_title($_POST['name']),
-                            'class' => $_POST['class'],
-                            'description' => $_POST['description'],
-                            'thumb' => $_POST['thumb'],
-                            'created_at' => date("Y-m-d H:i:s"),
-                        ),
-                        array('%s', '%s', '%s', '%s', '%s', '%s')
-                    );
-                    $lastServiceId = $wpdb->insert_id;
-                    $url = get_site_url().'/wp-admin/admin.php?page=br_divination_elements&type=edit&id='.$lastServiceId;
+                if(isset($_POST['action'])) {
+                    if($_POST['action'] == 'insert'){
+                        $divinationElementsTable = $wpdb->get_blog_prefix() . 'br_divination_elements';
+                        $wpdb->insert(
+                            $divinationElementsTable,
+                            array(
+                                'name' => $_POST['name'],
+                                'slug' => sanitize_title($_POST['name']),
+                                'class' => $_POST['class'],
+                                'description' => $_POST['description'],
+                                'thumb' => $_POST['thumb'],
+                                'created_at' => date("Y-m-d H:i:s"),
+                            ),
+                            array('%s', '%s', '%s', '%s', '%s', '%s')
+                        );
+                        $lastServiceId = $wpdb->insert_id;
+                        $url = get_site_url() . '/wp-admin/admin.php?page=br_divination_elements&type=edit&id=' . $lastServiceId;
+                    }
+                    if($_POST['action'] == 'update'){
+                        $divinationElementsTable = $wpdb->get_blog_prefix() . 'br_divination_elements';
+
+                        if(isset($_GET['id'])){ $id = $_GET['id']; }
+                        $wpdb->update(
+                            $divinationElementsTable,
+                            array(
+                                'name' => $_POST['name'],
+                                'slug' => sanitize_title($_POST['name']),
+                                'class' => $_POST['class'],
+                                'description' => $_POST['description'],
+                                'thumb' => $_POST['thumb'],
+                                'created_at' => date("Y-m-d H:i:s"),
+                            ),
+                            array(
+                                'id' => $id,
+                            ),
+                            array('%s', '%s', '%s', '%s', '%s', '%s'),
+                            array( '%d')
+                        );
+                        $url = get_site_url() . '/wp-admin/admin.php?page=br_divination_elements&type=edit&id=' . $lastServiceId;
+                    }
                 }
             ?>
             <?php if(isset($_GET['id']) || isset($lastServiceId)):?>
@@ -36,7 +60,8 @@
                 $sql = "SELECT * from `$divinationTable` WHERE id = $id";
                 $result = $wpdb->get_row( $sql , ARRAY_A );
                 ?>
-                <form action="/wp-admin/admin.php?page=br_divination_elements&type=edit<?php if(isset($_GET['id'])){ echo "&id=$_GET[id]"; }?>" method="post">
+                <form action="/wp-admin/admin.php?page=br_divination_elements&type=edit<?php if(isset($id)){ echo "&id=$id"; }?>" method="post">
+                    <input type="hidden" hidden="hidden" name="action" value="update">
                     <div class="form-group">
                         <label for="name">Название</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Название" <?php if(isset($result['name'])){ echo "value=$result[name]"; }?>>
@@ -79,6 +104,7 @@
         <?php endif;?>
         <?php if($_GET['type'] == 'add'):?>
             <form action="/wp-admin/admin.php?page=br_divination_elements&type=edit" method="post">
+                <input type="hidden" hidden="hidden" name="action" value="insert">
                 <div class="form-group">
                     <label for="name">Название</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Название">
