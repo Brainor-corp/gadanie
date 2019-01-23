@@ -36,7 +36,7 @@
 }
 
 .divination .desk .desk-card a {
-    width: 66px;
+    width: 100%;
     height: 126px;
     display: inline-block;
     background: url(/wp-content/plugins/brainor-gadanie/assets/imgs/taro/taro_rubashka.png) no-repeat;
@@ -98,6 +98,8 @@
 .divination .desk-cards .desk-card {
     text-align: center;
     color: white;
+    width: 15%;
+    margin-right: 5px;
 }
 
 .divination .help-block {
