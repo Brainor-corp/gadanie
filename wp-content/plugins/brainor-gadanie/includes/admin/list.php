@@ -63,7 +63,7 @@
                 $divinationPivotTable = $wpdb->get_blog_prefix().'br_divination_elements_pivot';
                 $id = $_GET['id'];
 //                $sql = "SELECT * from `$divinationTable` WHERE id = $id";
-                $wpdb->query('SET SESSION group_concat_max_len = 1000000;');
+                $wpdb->query('SET SESSION group_concat_max_len = 10000000000000000;');
                 $sql = '
                     SELECT 
                         D.id,
@@ -72,16 +72,37 @@
                         D.description,
                         D.thumb,
                         D.created_at,
-                        group_concat("{\"id\":\"",IFNULL(DE.id, "NULL"),"\",\"name\":\"",IFNULL(DE.name, "NULL"),"\",\"slug\":\"",IFNULL(DE.slug, "NULL"),"\",\"class\":\"",IFNULL(DE.class, "NULL"),"\",\"description\":\"",IFNULL(DE.description, "NULL"),"\",\"thumb\":\"",IFNULL(DE.thumb, "NULL"),"\",\"created_at\":\"",IFNULL(DE.created_at, "NULL"),"\",\"pivot_thumb\":\"",IFNULL(DP.thumb, "NULL"),"\",\"pivot_description\":\"",IFNULL(DP.description, "NULL"),"\"}") as elements 
+                        group_concat(
+"<|>id","<:>",IFNULL(DE.id, "NULL"),"<->",
+"name","<:>",IFNULL(DE.name, "NULL"),"<->",
+"slug","<:>",IFNULL(DE.slug, "NULL"),"<->",
+"class","<:>",IFNULL(DE.class, "NULL"),"<->",
+"description","<:>",IFNULL(DE.description, "NULL"),"<->",
+"thumb","<:>",IFNULL(DE.thumb, "NULL"),"<->",
+"created_at","<:>",IFNULL(DE.created_at, "NULL"),"<->",
+"pivot_thumb","<:>",IFNULL(DP.thumb, "NULL"),"<->",
+"pivot_description","<:>",IFNULL(DP.description, NULL),"<->"
+) as elements 
                     from '.$divinationTable.' D
                     LEFT JOIN '.$divinationPivotTable.' DP on DP.divination_id = D.id
                     LEFT JOIN '.$divinationElementsTable.' DE on DP.divination_element_id = DE.id
                     ORDER BY D.id DESC';
                 $divination = $wpdb->get_row( $sql , ARRAY_A );
-//                var_dump($divination);
+                $resultArr = [];
+                $elements = explode('<|>',$divination['elements']);
+                foreach ($elements as $elKey=>$element){
+                    if(strlen($element) > 0){
+                        $rows = explode('<->', $element);
+                        foreach ($rows as $rowKey=>$row) {
+                            if (strlen($row) > 0) {
+                                $keyValues = explode('<:>', $row);
+                                    $resultArr[$elKey][$keyValues[0]]=$keyValues[1];
+                            }
+                        }
+                    }
 
-                $str3 = str_replace("\n","", str_replace("\r","", $divination['elements']));
-                $divination['elements'] = json_decode('['.$str3.']',true);
+                }
+                $divination['elements'] = $resultArr;
 
                 $sql = "SELECT id,name from `$divinationElementsTable`";
                 $divinationElements = $wpdb->get_results( $sql , ARRAY_A );

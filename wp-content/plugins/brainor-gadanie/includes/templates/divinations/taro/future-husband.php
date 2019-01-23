@@ -28,6 +28,7 @@ $divinationElementsTable = $wpdb->get_blog_prefix().'br_divination_elements';
 $divinationPivotTable = $wpdb->get_blog_prefix().'br_divination_elements_pivot';
 
 $slug = 'personal-card-of-the-year';
+$wpdb->query('SET SESSION group_concat_max_len = 100000000000000000;');
 $sql = '
     SELECT 
         D.id,
@@ -36,7 +37,17 @@ $sql = '
         D.description,
         D.thumb,
         D.created_at,
-        group_concat("{\"id\":\"",IFNULL(DE.id, "NULL"),"\",\"name\":\"",IFNULL(DE.name, "NULL"),"\",\"slug\":\"",IFNULL(DE.slug, "NULL"),"\",\"class\":\"",IFNULL(DE.class, "NULL"),"\",\"description\":\"",IFNULL(DE.description, "NULL"),"\",\"thumb\":\"",IFNULL(DE.thumb, "NULL"),"\",\"created_at\":\"",IFNULL(DE.created_at, "NULL"),"\",\"pivot_thumb\":\"",IFNULL(DP.thumb, "NULL"),"\",\"pivot_description\":\"",IFNULL(DP.description, "NULL"),"\"}") as elements 
+        group_concat(
+"<|>id","<:>",IFNULL(DE.id, "NULL"),"<->",
+"name","<:>",IFNULL(DE.name, "NULL"),"<->",
+"slug","<:>",IFNULL(DE.slug, "NULL"),"<->",
+"class","<:>",IFNULL(DE.class, "NULL"),"<->",
+"description","<:>",IFNULL(DE.description, "NULL"),"<->",
+"thumb","<:>",IFNULL(DE.thumb, "NULL"),"<->",
+"created_at","<:>",IFNULL(DE.created_at, "NULL"),"<->",
+"pivot_thumb","<:>",IFNULL(DP.thumb, "NULL"),"<->",
+"pivot_description","<:>",IFNULL(DP.description, NULL),"<->"
+) as elements 
     from '.$divinationTable.' D
     LEFT JOIN '.$divinationPivotTable.' DP on DP.divination_id = D.id
     LEFT JOIN '.$divinationElementsTable.' DE on DP.divination_element_id = DE.id
@@ -44,8 +55,21 @@ $sql = '
     ORDER BY D.id ASC';
 $divination = $wpdb->get_row( $sql , ARRAY_A );
 
-$str3 = str_replace("\n","", str_replace("\r","", $divination['elements']));
-$divination['elements'] = json_decode('['.$str3.']',true);
+$resultArr = [];
+$elements = explode('<|>',$divination['elements']);
+foreach ($elements as $elKey=>$element){
+    if(strlen($element) > 0){
+        $rows = explode('<->', $element);
+        foreach ($rows as $rowKey=>$row) {
+            if (strlen($row) > 0) {
+                $keyValues = explode('<:>', $row);
+                $resultArr[$elKey][$keyValues[0]]=$keyValues[1];
+            }
+        }
+    }
+
+}
+$divination['elements'] = $resultArr;
 ?>
 
 <div class="divination future-husband" data-card-count="10" id="<?php echo uniqid() ?>">
@@ -146,18 +170,18 @@ $divination['elements'] = json_decode('['.$str3.']',true);
                     </span>
                 </div>
 
-                <?php for($i = 1; $i <= 78; $i++): ?>
+                <?php foreach($divination['elements'] as $key=>$element): ?>
                     <?php
-                    $thumb = $divination['elements'][0]['thumb'];
-                    $description = $divination['elements'][0]['description'];
-                    if($divination['elements'][0]['pivot_thumb'] !== ''){$thumb = $divination['elements'][0]['pivot_thumb'];}
-                    if($divination['elements'][0]['pivot_description'] !== ''){$description = $divination['elements'][0]['pivot_description'];}
+                    $thumb = $element['thumb'];
+                    $description = $element['description'];
+                    if($element['pivot_thumb'] !== ''){$thumb = $element['pivot_thumb'];}
+                    if($element['pivot_description'] !== ''){$element['pivot_description'];}
                     ?>
-                    <div class="hidden-card" id="hidden-card-<?php echo $i ?>" data-name="card-<?php echo $i ?>" data-img="<?php echo $thumb; ?>" style="display: none">
-                        <h2>Карта <span class="card-name"><?php echo $divination['elements'][0]['name'] ?> <span class="is-revert"></span></span></h2>
+                    <div class="hidden-card" id="hidden-card-<?php echo $key ?>" data-name="card-<?php echo $element['name'] ?>" data-img="<?php echo $thumb; ?>" style="display: none">
+                        <h2>Карта <span class="card-name"><?php echo $element['name'] ?> <span class="is-revert"></span></span></h2>
                         <span><?php echo $description ?></span>
                     </div>
-                <?php endfor; ?>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
