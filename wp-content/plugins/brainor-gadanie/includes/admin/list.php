@@ -63,6 +63,7 @@
                 $divinationPivotTable = $wpdb->get_blog_prefix().'br_divination_elements_pivot';
                 $id = $_GET['id'];
 //                $sql = "SELECT * from `$divinationTable` WHERE id = $id";
+                $wpdb->query('SET SESSION group_concat_max_len = 1000000;');
                 $sql = '
                     SELECT 
                         D.id,
@@ -77,6 +78,7 @@
                     LEFT JOIN '.$divinationElementsTable.' DE on DP.divination_element_id = DE.id
                     ORDER BY D.id DESC';
                 $divination = $wpdb->get_row( $sql , ARRAY_A );
+//                var_dump($divination);
 
                 $str3 = str_replace("\n","", str_replace("\r","", $divination['elements']));
                 $divination['elements'] = json_decode('['.$str3.']',true);
