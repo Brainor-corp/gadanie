@@ -1,6 +1,28 @@
-<link rel="stylesheet" href="/wp-content/plugins/brainor-gadanie/assets/css/divination-taro.css">
+<script>
+    if(!document.getElementById('divination-taro-css')) {
+        let style = document.createElement( 'link' );
+        style.setAttribute('id', 'divination-taro-css');
+        style.setAttribute('rel', 'stylesheet');
+        style.setAttribute('type', 'text/css');
+        style.setAttribute('href', '/wp-content/plugins/brainor-gadanie/assets/css/divination-taro.css');
+
+        document.getElementsByTagName( 'head' )[ 0 ].appendChild(style);
+    }
+
+    if(!document.getElementById('divination-taro-js')) {
+        let script = document.createElement( 'script' );
+        script.src = '/wp-content/plugins/brainor-gadanie/assets/js/divination-taro.js';
+        script.id = 'divination-taro-js';
+        script.type = 'text/javascript';
+        document.getElementsByTagName( 'head' )[ 0 ].appendChild(script);
+    }
+</script>
+
+<!--<link rel="stylesheet" href="/wp-content/plugins/brainor-gadanie/assets/css/divination-taro.css" id="divination-taro-css">-->
+<!--<script src="/wp-content/plugins/brainor-gadanie/assets/js/divination-taro.js" id="divination-taro-js"></script>-->
+
+
 <link rel="stylesheet" href="/wp-content/plugins/brainor-gadanie/assets/css/divination-taro-personal-card-of-the-year.css">
-<script src="/wp-content/plugins/brainor-gadanie/assets/js/divination-taro.js"></script>
 
 <?php
 global  $wpdb;
@@ -30,7 +52,7 @@ $str3 = str_replace("\n","", str_replace("\r","", $divination['elements']));
 $divination['elements'] = json_decode('['.$str3.']',true);
 ?>
 
-<div class="divination" data-card-count="1" id="<?php echo uniqid() ?>">
+<div class="divination personal-card-of-the-year" data-card-count="1" id="<?php echo uniqid() ?>">
     <div class="taro_bg">
         <div class="hand">
             <div class="help-block">
@@ -76,7 +98,7 @@ $divination['elements'] = json_decode('['.$str3.']',true);
                     if($divination['elements'][0]['pivot_description'] !== ''){$description = $divination['elements'][0]['pivot_description'];}
                     ?>
                     <div class="hidden-card" id="hidden-card-<?php echo $i ?>" data-name="card-<?php echo $i ?>" data-img="<?php echo $thumb; ?>" style="display: none">
-                        <h2>Описание карты <?php echo $divination['elements'][0]['name'] ?></h2>
+                        <h2>Карта <span class="card-name"><?php echo $divination['elements'][0]['name'] ?> <span class="is-revert"></span></span></h2>
                         <span><?php echo $description ?></span>
                     </div>
                 <?php endfor; ?>

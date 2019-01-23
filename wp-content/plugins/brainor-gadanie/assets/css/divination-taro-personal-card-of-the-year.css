@@ -1,4 +1,8 @@
-.divination .desk .desk-cards {
+.divination.personal-card-of-the-year .desk {
+    height: 250px !important;
+}
+
+.divination.personal-card-of-the-year .desk .desk-cards {
     display: flex;
     justify-content: center;
     align-items: center;
