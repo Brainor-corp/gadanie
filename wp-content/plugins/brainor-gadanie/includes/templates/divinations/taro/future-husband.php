@@ -20,6 +20,34 @@
 
 <link rel="stylesheet" href="/wp-content/plugins/brainor-gadanie/assets/css/divination-taro-future-husband.css">
 
+<?php
+global  $wpdb;
+
+$divinationTable = $wpdb->get_blog_prefix().'br_divinations';
+$divinationElementsTable = $wpdb->get_blog_prefix().'br_divination_elements';
+$divinationPivotTable = $wpdb->get_blog_prefix().'br_divination_elements_pivot';
+
+$slug = 'personal-card-of-the-year';
+$sql = '
+    SELECT 
+        D.id,
+        D.name,
+        D.slug,
+        D.description,
+        D.thumb,
+        D.created_at,
+        group_concat("{\"id\":\"",IFNULL(DE.id, "NULL"),"\",\"name\":\"",IFNULL(DE.name, "NULL"),"\",\"slug\":\"",IFNULL(DE.slug, "NULL"),"\",\"class\":\"",IFNULL(DE.class, "NULL"),"\",\"description\":\"",IFNULL(DE.description, "NULL"),"\",\"thumb\":\"",IFNULL(DE.thumb, "NULL"),"\",\"created_at\":\"",IFNULL(DE.created_at, "NULL"),"\",\"pivot_thumb\":\"",IFNULL(DP.thumb, "NULL"),"\",\"pivot_description\":\"",IFNULL(DP.description, "NULL"),"\"}") as elements 
+    from '.$divinationTable.' D
+    LEFT JOIN '.$divinationPivotTable.' DP on DP.divination_id = D.id
+    LEFT JOIN '.$divinationElementsTable.' DE on DP.divination_element_id = DE.id
+    WHERE D.slug = \''.$slug.'\'
+    ORDER BY D.id ASC';
+$divination = $wpdb->get_row( $sql , ARRAY_A );
+
+$str3 = str_replace("\n","", str_replace("\r","", $divination['elements']));
+$divination['elements'] = json_decode('['.$str3.']',true);
+?>
+
 <div class="divination future-husband" data-card-count="10" id="<?php echo uniqid() ?>">
     <div class="taro_bg">
         <div class="hand">
@@ -117,12 +145,19 @@
                         10.Совет карт: стоит ли выходить замуж за этого мужчину? <br>
                     </span>
                 </div>
-                <?php for($i = 1; $i <= 78; $i++) { ?>
-                    <div class="hidden-card" id="hidden-card-<?php echo $i ?>" data-name="card-<?php echo $i ?>" data-img="http://www.onlinegadanie.ru/wp-content/themes/onlinegadanie/images/taro/danet/taro00.png" style="display: none">
-                        <h2>Описание карты <?php echo $i ?></h2>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, optio!</span>
+
+                <?php for($i = 1; $i <= 78; $i++): ?>
+                    <?php
+                    $thumb = $divination['elements'][0]['thumb'];
+                    $description = $divination['elements'][0]['description'];
+                    if($divination['elements'][0]['pivot_thumb'] !== ''){$thumb = $divination['elements'][0]['pivot_thumb'];}
+                    if($divination['elements'][0]['pivot_description'] !== ''){$description = $divination['elements'][0]['pivot_description'];}
+                    ?>
+                    <div class="hidden-card" id="hidden-card-<?php echo $i ?>" data-name="card-<?php echo $i ?>" data-img="<?php echo $thumb; ?>" style="display: none">
+                        <h2>Карта <span class="card-name"><?php echo $divination['elements'][0]['name'] ?> <span class="is-revert"></span></span></h2>
+                        <span><?php echo $description ?></span>
                     </div>
-                <?php } ?>
+                <?php endfor; ?>
             </div>
         </div>
     </div>

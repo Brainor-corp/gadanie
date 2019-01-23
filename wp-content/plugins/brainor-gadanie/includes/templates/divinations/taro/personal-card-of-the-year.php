@@ -98,7 +98,7 @@ $divination['elements'] = json_decode('['.$str3.']',true);
                     if($divination['elements'][0]['pivot_description'] !== ''){$description = $divination['elements'][0]['pivot_description'];}
                     ?>
                     <div class="hidden-card" id="hidden-card-<?php echo $i ?>" data-name="card-<?php echo $i ?>" data-img="<?php echo $thumb; ?>" style="display: none">
-                        <h2>Описание карты <?php echo $divination['elements'][0]['name'] ?></h2>
+                        <h2>Карта <span class="card-name"><?php echo $divination['elements'][0]['name'] ?> <span class="is-revert"></span></span></h2>
                         <span><?php echo $description ?></span>
                     </div>
                 <?php endfor; ?>

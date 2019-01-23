@@ -32,7 +32,7 @@ function shuffle(a) {
 
 // Скрывает описание всех карт и показывает описание карты с номером number
 // number = 0 -- правила гадания
-function showDescription($, divinationIdStr, number = 0) {
+function showDescription($, divinationIdStr, isRevert = 0, number = 0) {
     let divinationIdPrefix = '#' + divinationIdStr + ' ';
     if(number) {
         $(divinationIdPrefix + '#show-desk').show(500);
@@ -40,6 +40,14 @@ function showDescription($, divinationIdStr, number = 0) {
         $(divinationIdPrefix + '#show-desk').hide(500);
     }
     $(divinationIdPrefix + '.hidden-card').hide(500); // Прячем описание карты
+
+    console.log(divinationIdPrefix + '#hidden-card-' + number.toString() + ' .card-name .is-revert');
+    if(isRevert) {
+        $(divinationIdPrefix + '#hidden-card-' + number.toString() + ' .card-name .is-revert').text('(Перевернутая)')
+    } else {
+        $(divinationIdPrefix + '#hidden-card-' + number.toString() + ' .card-name .is-revert').text('')
+    }
+
     $(divinationIdPrefix + '#hidden-card-' + number.toString()).show(500); // Показываем правила гадания
 }
 
@@ -61,7 +69,10 @@ function reload($, divinationIdStr) {
     $(divinationIdPrefix + '#show-desk').hide(500); // Прячем кнопку просмотра расклада
     $(divinationIdPrefix + '#divination-again').hide(500); // Прячем кнопку повторного гадания
     $(divinationIdPrefix + '.desk-card a').stop().animate({opacity: 0}, 1000, function () {
-        $(this).css({'background': 'url(/wp-content/plugins/brainor-gadanie/assets/imgs/taro/taro_rubashka.png)'})
+        $(this).css({
+            'background': 'url(/wp-content/plugins/brainor-gadanie/assets/imgs/taro/taro_rubashka.png)',
+            'transform': 'rotate(-0deg)',
+        })
             .animate({opacity: 1}, {duration: 1000});
     });
     $(divinationIdPrefix + '.desk-card').removeClass('card-loaded'); // Убирем класс показанных карт
@@ -89,12 +100,27 @@ function reload($, divinationIdStr) {
             if (currentCardCounter[divinationIdStr] < cardsNumbers[divinationIdStr].length) {
                 let num = cardsNumbers[divinationIdStr].pop(); // Берем случайный номер карты
                 let card = $(divinationIdPrefix + '#hidden-card-' + num.toString()); // Ищем данные этой карты в скрытых инпутах всех карт
+                let rotate = Math.floor(Math.random() * 2); // Если выпала перевернутая карта, то переворачиваем её
+                let cardStyle = {};
+                if(rotate) {
+                    cardStyle = {
+                        'transform': 'rotate(-180deg)',
+                        'background': 'url(' + card.data('img') + ')'
+                    };
+                } else {
+                    cardStyle = {
+                        'background': 'url(' + card.data('img') + ')'
+                    };
+                }
+                console.log(rotate);
+                console.log(cardStyle);
                 $(divinationIdPrefix + '#desk-card-' + (++currentCardCounter[divinationIdStr]).toString() + ' a').stop().animate({opacity: 0}, 1000, function () {
-                    $(this).css({'background': 'url(' + card.data('img') + ')'})
+                    $(this).css(cardStyle)
                         .animate({opacity: 1}, {duration: 1000});
                 }); // Обновляем карту с текущим порядковым номером (меняем картинку)
                 $(divinationIdPrefix + '#desk-card-' + (currentCardCounter[divinationIdStr]).toString()).addClass('card-loaded'); // Помечаем карту с текущим порядковым номером прогруженной
                 $(divinationIdPrefix + '#desk-card-' + (currentCardCounter[divinationIdStr]).toString()).data('card-number', num.toString()); // Запоминаем номер карты в дата атрибут карты с текущим порядковым номером
+                $(divinationIdPrefix + '#desk-card-' + (currentCardCounter[divinationIdStr]).toString()).data('card-rotate', rotate); // Запоминаем номер карты в дата атрибут карты с текущим порядковым номером
             }
 
             // Если гадание завершено
@@ -109,7 +135,7 @@ function reload($, divinationIdStr) {
         // Клик по загруженной карте для просмотра её описания
         $('.divination').on('click', '.card-loaded', function () {
             let divinationIdStr = $(this).closest('.divination').attr('id');
-            showDescription($, divinationIdStr, $(this).data('card-number'));
+            showDescription($, divinationIdStr, $(this).data('card-rotate'), $(this).data('card-number'));
         });
 
         // Клик по кнопки просмотра расклада
