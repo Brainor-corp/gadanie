@@ -1,8 +1,22 @@
-let cardsCount = 78; // Кол-во кард в колоде
+if(typeof cardsCount === 'undefined') {
+    console.log('cardsCount');
+    var cardsCount = 78; // Кол-во кард в колоде
+}
 
-let totalCardsCount = []; // Кол-во карт, используемых при гадании
-let cardsNumbers = []; // Массив номеров карт в случайном порядке
-let currentCardCounter = []; // Счетчик порядкого номера текущей (выбранной) карты
+if(typeof totalCardsCount === 'undefined') {
+    console.log('totalCardsCount');
+    var totalCardsCount = []; // Кол-во карт, используемых при гадании
+}
+
+if(typeof cardsNumbers === 'undefined') {
+    console.log('cardsNumbers');
+    var cardsNumbers = []; // Массив номеров карт в случайном порядке
+}
+
+if(typeof currentCardCounter === 'undefined') {
+    console.log('currentCardCounter');
+    var currentCardCounter = []; // Счетчик порядкого номера текущей (выбранной) карты
+}
 
 // Перемешивание значений массива
 function shuffle(a) {
@@ -68,6 +82,8 @@ function reload($, divinationIdStr) {
         $('.divination').on('click', '.hand-card', function () {
             let divinationIdStr = $(this).closest('.divination').attr('id');
             let divinationIdPrefix = '#' + $(this).closest('.divination').attr('id') + ' ';
+
+            console.log(divinationIdStr);
 
             // Если гадание не завершено
             if (currentCardCounter[divinationIdStr] < cardsNumbers[divinationIdStr].length) {

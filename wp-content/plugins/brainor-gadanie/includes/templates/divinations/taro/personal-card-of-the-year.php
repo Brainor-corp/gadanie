@@ -1,6 +1,28 @@
-<link rel="stylesheet" href="/wp-content/plugins/brainor-gadanie/assets/css/divination-taro.css">
+<script>
+    let cssFile = document.getElementById('divination-taro-css');
+    let jsFile = document.getElementById('divination-taro-js');
+    let ref = document.getElementsByTagName( 'head' )[ 0 ];
+
+    if(!cssFile) {
+        let style = document.createElement( 'link' );
+        style.href = '/wp-content/plugins/brainor-gadanie/assets/css/divination-taro.css';
+        style.id = 'divination-taro-css';
+        ref.parentNode.insertBefore( style, ref );
+    }
+
+    if(!jsFile) {
+        let script = document.createElement( 'link' );
+        script.src = '/wp-content/plugins/brainor-gadanie/assets/css/divination-taro.css';
+        script.id = 'divination-taro-js';
+        ref.parentNode.insertBefore( script, ref );
+    }
+</script>
+
+<!--<link rel="stylesheet" href="/wp-content/plugins/brainor-gadanie/assets/css/divination-taro.css" id="divination-taro-css">-->
+<!--<script src="/wp-content/plugins/brainor-gadanie/assets/js/divination-taro.js" id="divination-taro-js"></script>-->
+
+
 <link rel="stylesheet" href="/wp-content/plugins/brainor-gadanie/assets/css/divination-taro-personal-card-of-the-year.css">
-<script src="/wp-content/plugins/brainor-gadanie/assets/js/divination-taro.js"></script>
 
 <?php
 global  $wpdb;
