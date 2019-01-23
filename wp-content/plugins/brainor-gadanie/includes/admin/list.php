@@ -89,6 +89,22 @@
                         <label for="name">Название</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Название" <?php if(isset($divination['name'])){ echo "value='$divination[name]'"; }?>>
                     </div>
+                    <div class="form-group">
+                        <label for="description">Описание</label>
+                        <?php
+                        $settings = array(
+                            'teeny' => 0,
+                            'textarea_rows' => 5,
+                            'tabindex' => 1,
+                            'textarea_name' => 'description',
+                        );
+                        wp_editor($divination['description'],'divination_description', $settings);
+                        ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Метка</label>
+                        <input type="text" class="form-control" id="slug" name="slug" placeholder="Метка" <?php if(isset($divination['slug'])){ echo "value='$divination[slug]'"; }?>>
+                    </div>
 
                     <div class="form-group">
                         <label>Элементы</label>
