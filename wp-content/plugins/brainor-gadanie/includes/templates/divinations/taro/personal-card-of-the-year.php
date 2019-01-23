@@ -1,20 +1,20 @@
 <script>
-    let cssFile = document.getElementById('divination-taro-css');
-    let jsFile = document.getElementById('divination-taro-js');
-    let ref = document.getElementsByTagName( 'head' )[ 0 ];
-
-    if(!cssFile) {
+    if(!document.getElementById('divination-taro-css')) {
         let style = document.createElement( 'link' );
-        style.href = '/wp-content/plugins/brainor-gadanie/assets/css/divination-taro.css';
-        style.id = 'divination-taro-css';
-        ref.parentNode.insertBefore( style, ref );
+        style.setAttribute('id', 'divination-taro-css');
+        style.setAttribute('rel', 'stylesheet');
+        style.setAttribute('type', 'text/css');
+        style.setAttribute('href', '/wp-content/plugins/brainor-gadanie/assets/css/divination-taro.css');
+
+        document.getElementsByTagName( 'head' )[ 0 ].appendChild(style);
     }
 
-    if(!jsFile) {
-        let script = document.createElement( 'link' );
-        script.src = '/wp-content/plugins/brainor-gadanie/assets/css/divination-taro.css';
+    if(!document.getElementById('divination-taro-js')) {
+        let script = document.createElement( 'script' );
+        script.src = '/wp-content/plugins/brainor-gadanie/assets/js/divination-taro.js';
         script.id = 'divination-taro-js';
-        ref.parentNode.insertBefore( script, ref );
+        script.type = 'text/javascript';
+        document.getElementsByTagName( 'head' )[ 0 ].appendChild(script);
     }
 </script>
 
