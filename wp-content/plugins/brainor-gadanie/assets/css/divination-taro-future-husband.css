@@ -1,4 +1,8 @@
-.divination .desk .desk-cards {
+.divination.future-husband .desk {
+    height: 550px !important;
+}
+
+.divination.future-husband .desk .desk-cards {
     display: flex;
     justify-content: center;
     align-items: center;

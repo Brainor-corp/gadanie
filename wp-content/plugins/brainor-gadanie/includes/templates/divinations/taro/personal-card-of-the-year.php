@@ -52,7 +52,7 @@ $str3 = str_replace("\n","", str_replace("\r","", $divination['elements']));
 $divination['elements'] = json_decode('['.$str3.']',true);
 ?>
 
-<div class="divination" data-card-count="1" id="<?php echo uniqid() ?>">
+<div class="divination personal-card-of-the-year" data-card-count="1" id="<?php echo uniqid() ?>">
     <div class="taro_bg">
         <div class="hand">
             <div class="help-block">

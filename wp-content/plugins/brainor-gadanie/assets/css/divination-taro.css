@@ -1,5 +1,6 @@
 .divination .taro_bg {
     background: url(/wp-content/plugins/brainor-gadanie/assets/imgs/taro/bg_lost.jpg) repeat;
+    background-position: center !important;
     width: 100%;
     padding-top: 5px;
     height: 450px;
@@ -17,6 +18,7 @@
     float: left;
     margin: 0 0 0 -55px;
     background: url(/wp-content/plugins/brainor-gadanie/assets/imgs/taro/taro_rubashka.png) no-repeat;
+    background-position: center !important;
     position: relative;
     overflow: hidden;
     top: 0;
@@ -45,6 +47,7 @@
     top: 0;
     background-size: contain!important;
     background-repeat: no-repeat !important;
+    background-position: center !important;
 }
 
 .divination .ca {
@@ -86,6 +89,10 @@
     max-height: 375px;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.divination .desk .desk-left {
+    height: 100%;
 }
 
 .divination .desk .desk-left,
