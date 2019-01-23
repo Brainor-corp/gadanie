@@ -32,6 +32,7 @@ $divinationElementsTable = $wpdb->get_blog_prefix().'br_divination_elements';
 $divinationPivotTable = $wpdb->get_blog_prefix().'br_divination_elements_pivot';
 
 $slug = 'personal-card-of-the-year';
+$wpdb->query('SET SESSION group_concat_max_len = 1000000;');
 $sql = '
     SELECT 
         D.id,

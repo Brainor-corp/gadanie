@@ -7,6 +7,28 @@
 <div class="wrap">
     <h2><?php echo get_admin_page_title() ?></h2>
     <?php global $wpdb; ?>
+    <?php if($_POST['type'] == 'taro-import'):?>
+        <?php
+            $table = $wpdb->get_blog_prefix().'br_divination_elements';
+            $place_holders = array( '%s', '%s', '%s', '%s');
+            $handle = fopen($_FILES['myFile']['tmp_name'], "r");
+            while (($row = fgetcsv($handle, 10000, ';')) !== false) {
+//                $row = str_replace('\n', '<br>', $row);
+//                var_dump($row);
+                $wpdb->insert(
+                    $table,
+                    array(
+                        'name' => $row[0],
+                        'slug' => sanitize_title($row[0]),
+                        'description' => $row[1],
+                        'thumb' => $row[2]
+                    ),
+                    $place_holders
+                );
+            }
+            fclose($handle);
+        ?>
+    <?php endif;?>
     <?php if(isset($_GET['type'])):?>
         <?php if($_GET['type'] == 'edit'):?>
             <?php
@@ -133,8 +155,34 @@
         <?php endif;?>
     <?php else:?>
         <a href="?page=br_divination_elements&type=add">
-            <button class="btn btn-primary">Создать</button>
+            <button class="btn btn-primary my-4">Создать</button>
         </a>
+
+        <button type="button" class="btn btn-info my-4" data-toggle="modal" data-target="#importModal">Импорт</button>
+
+        <div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="importModal">Импорт</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <input name="myFile" type="file">
+                            <input type="hidden" name="type" value="taro-import">
+                            <input type="hidden" name="page" value="br_divination_elements">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                            <button type="submit" class="btn btn-primary">Импортировать</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <?php
         $divinationTable = $wpdb->get_blog_prefix().'br_divination_elements';
 
