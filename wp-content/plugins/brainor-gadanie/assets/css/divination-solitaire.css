@@ -1,0 +1,58 @@
+.divination-solitaire .sol-table .sol-row {
+    display: table;
+    table-layout: fixed;
+    width:100%;
+}
+
+.divination-solitaire .sol-table .sol-row .sol-col {
+    display: table-cell;
+    text-align: center;
+    padding: 3px;
+    position: relative;
+}
+
+.divination-solitaire .sol-table .sol-row .sol-col img {
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    width: 100%;
+    height: auto;
+    transform: rotate(0deg)
+}
+
+.divination-solitaire .sol-table .sol-row .sol-col .rotate-left,
+.divination-solitaire .sol-table .sol-row .sol-col .rotate-right {
+    position: absolute;
+    top: 5px;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 600ms, visibility 600ms;
+    transition: opacity 600ms, visibility 600ms;
+}
+
+.divination-solitaire .sol-table .sol-row .sol-col .rotate-left {
+    left: 5px;
+}
+
+.divination-solitaire .sol-table .sol-row .sol-col .rotate-right {
+    right: 5px;
+}
+
+.divination-solitaire .sol-table .sol-row .sol-col.loaded:hover a {
+    visibility: visible;
+    opacity: 1;
+}
+
+.divination-solitaire .elements {
+    display: none;
+}
+
+.divination-solitaire button {
+    cursor: pointer;
+    background: none !important;
+    box-shadow: none !important;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: black;
+    width: 180px;
+}
