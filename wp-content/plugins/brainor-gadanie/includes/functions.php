@@ -40,6 +40,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "na-budushhego-muzha":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/na-budushhego-muzha.php');
                     break;
+                case "na-otnoshenie-k-lyubimogo-muzhchiny":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/na-otnoshenie-k-lyubimogo-muzhchiny.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
