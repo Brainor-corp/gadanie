@@ -1,0 +1,13 @@
+.divination.lyubovnyj-treugolnik .desk {
+    height: 850px !important;
+}
+
+.divination.lyubovnyj-treugolnik .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.lyubovnyj-treugolnik .taro_bg {
+    height: 1050px !important;
+}

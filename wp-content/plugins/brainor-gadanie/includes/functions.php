@@ -49,6 +49,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "lyubit-li-on-menya":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/lyubit-li-on-menya.php');
                     break;
+                case "lyubovnyj-treugolnik":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/lyubovnyj-treugolnik.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
