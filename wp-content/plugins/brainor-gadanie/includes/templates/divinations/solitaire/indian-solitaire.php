@@ -76,7 +76,7 @@ $divination['elements'] = $resultArr;
 ?>
 
 <div class="divination-solitaire indian-solitaire" id="<?php echo uniqid() ?>">
-    <button class="reload">Разложить карты</button>
+    <div style="text-align: center"><button class="reload">Разложить карты</button></div>
     <div class="sol-table">
         <?php for($i = 0; $i < $height; $i++): ?>
             <div class="sol-row">
@@ -93,7 +93,7 @@ $divination['elements'] = $resultArr;
 
     <div class="elements">
         <?php for($i = 0; $i < $width * $height; $i++): ?>
-            <div class="element" data-img="http://gadalkindom.ru/wp-content/themes/gadalkindom2/skripts3/pasians-na-budushee/img/1.jpg"></div>
+            <div class="element" data-img="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/<?php echo $i + 1?>.jpg"></div>
         <?php endfor; ?>
     </div>
 </div>

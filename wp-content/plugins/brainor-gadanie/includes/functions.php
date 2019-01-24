@@ -64,6 +64,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "na-zavtrashnij-den":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/na-zavtrashnij-den.php');
                     break;
+                case "indian-solitaire":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/solitaire/indian-solitaire.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
