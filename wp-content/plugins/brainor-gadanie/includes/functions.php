@@ -55,6 +55,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "na-vernost-lyubimogo":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/na-vernost-lyubimogo.php');
                     break;
+                case "podxodite-li-vy-drug-drugu":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/podxodite-li-vy-drug-drugu.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
