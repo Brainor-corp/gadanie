@@ -37,6 +37,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "v-poiskax-lyubvi":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/v-poiskax-lyubvi.php');
                     break;
+                case "na-budushhego-muzha":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/na-budushhego-muzha.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
