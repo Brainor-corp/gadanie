@@ -1,6 +1,7 @@
 .divination .taro_bg {
-    background: url(/wp-content/plugins/brainor-gadanie/assets/imgs/taro/bg_lost.jpg) repeat;
+    background: url(/wp-content/plugins/brainor-gadanie/assets/imgs/taro/back1.jpg) no-repeat;
     background-position: center !important;
+    background-size: cover;
     width: 100%;
     padding-top: 5px;
     height: 450px;
@@ -39,9 +40,9 @@
 
 .divination .desk .desk-card a {
     width: 100%;
-    height: 126px;
+    height: 90px;
     display: inline-block;
-    background: url(/wp-content/plugins/brainor-gadanie/assets/imgs/taro/taro_rubashka.png) no-repeat;
+    background: url(/wp-content/plugins/brainor-gadanie/assets/imgs/taro/taro_rubashka.png);
     position: relative;
     overflow: hidden;
     top: 0;

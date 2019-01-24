@@ -1,0 +1,13 @@
+.divination.pregrady-na-puti-lyubvi .desk {
+    height: 650px !important;
+}
+
+.divination.pregrady-na-puti-lyubvi .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.pregrady-na-puti-lyubvi .taro_bg {
+    height: 850px !important;
+}

@@ -1,0 +1,13 @@
+.divination.v-poiskax-lyubvi .desk {
+    height: 300px !important;
+}
+
+.divination.v-poiskax-lyubvi .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.v-poiskax-lyubvi .taro_bg {
+    height: 500px !important;
+}

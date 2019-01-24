@@ -1,0 +1,51 @@
+.divination.na-vernost-lyubimogo .desk {
+    height: 750px !important;
+}
+
+.divination.na-vernost-lyubimogo .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.na-vernost-lyubimogo .taro_bg {
+    height: 950px !important;
+}
+.na-vernost-lyubimogo #desk-card-1{
+    margin-left: -60px;
+    position: absolute;
+}
+.na-vernost-lyubimogo #desk-card-2{
+    margin-left: -60px;
+    position: absolute;
+}
+.na-vernost-lyubimogo #desk-card-3{
+    margin-left: -60px;
+    position: absolute;
+}
+.na-vernost-lyubimogo #desk-card-4{
+    margin-left: -60px;
+    position: absolute;
+}
+.na-vernost-lyubimogo #desk-card-5{
+    margin-left: -129px;
+    position: absolute;
+    margin-top: -60px;
+}
+.na-vernost-lyubimogo #desk-card-6{
+    margin-left: 5px;
+    position: absolute;
+    margin-top: -60px;
+}
+.na-vernost-lyubimogo #desk-card-7{
+    margin-right: -150px;
+}
+.na-vernost-lyubimogo #desk-card-8{
+    margin-right: -150px;
+}
+.na-vernost-lyubimogo #desk-card-9{
+    margin-right: -150px;
+}
+.na-vernost-lyubimogo #desk-card-10{
+    margin-right: -150px;
+}
