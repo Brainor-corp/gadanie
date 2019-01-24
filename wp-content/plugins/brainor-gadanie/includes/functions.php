@@ -52,6 +52,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "lyubovnyj-treugolnik":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/lyubovnyj-treugolnik.php');
                     break;
+                case "na-vernost-lyubimogo":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/na-vernost-lyubimogo.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
