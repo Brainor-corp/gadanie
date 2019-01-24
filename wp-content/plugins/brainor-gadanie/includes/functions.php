@@ -58,6 +58,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "podxodite-li-vy-drug-drugu":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/podxodite-li-vy-drug-drugu.php');
                     break;
+                case "na-situaciyu":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/na-situaciyu.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
