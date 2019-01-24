@@ -46,6 +46,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "goroskop":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/goroskop.php');
                     break;
+                case "lyubit-li-on-menya":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/lyubit-li-on-menya.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{

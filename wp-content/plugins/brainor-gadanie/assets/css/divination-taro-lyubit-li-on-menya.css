@@ -1,0 +1,13 @@
+.divination.lyubit-li-on-menya .desk {
+    height: 550px !important;
+}
+
+.divination.lyubit-li-on-menya .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.lyubit-li-on-menya .taro_bg {
+    height: 750px !important;
+}
