@@ -1,0 +1,28 @@
+.divination.goroskop .desk {
+    height: 550px !important;
+}
+
+.divination.goroskop .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.goroskop .taro_bg {
+    height: 750px !important;
+}
+.divination.goroskop #desk-card-1{
+    margin-top: -210px;
+}
+.divination.goroskop #desk-card-7{
+    margin-top: 160px;
+}
+.divination.goroskop #desk-card-12{
+    margin-left: 50px;
+}
+.divination.goroskop #desk-card-6{
+    margin-right: 50px;
+}
+.divination.goroskop .desk-cards{
+    margin-bottom: -50px;
+}

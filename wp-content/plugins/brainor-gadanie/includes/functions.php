@@ -43,6 +43,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "na-otnoshenie-k-lyubimogo-muzhchiny":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/na-otnoshenie-k-lyubimogo-muzhchiny.php');
                     break;
+                case "goroskop":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/goroskop.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
