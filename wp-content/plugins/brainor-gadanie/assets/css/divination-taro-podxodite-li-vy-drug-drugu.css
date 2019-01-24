@@ -1,0 +1,13 @@
+.divination.podxodite-li-vy-drug-drugu .desk {
+    height: 350px !important;
+}
+
+.divination.podxodite-li-vy-drug-drugu .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.podxodite-li-vy-drug-drugu .taro_bg {
+    height: 550px !important;
+}

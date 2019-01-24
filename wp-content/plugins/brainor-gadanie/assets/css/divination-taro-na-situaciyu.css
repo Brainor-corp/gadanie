@@ -1,0 +1,22 @@
+.divination.na-situaciyu .desk {
+    height: 250px !important;
+}
+
+.divination.na-situaciyu .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.na-situaciyu .taro_bg {
+    height: 550px !important;
+}
+.divination.na-situaciyu #desk-card-5{
+    margin-top: -20px;
+}
+.divination.na-situaciyu #desk-card-6{
+    margin-top: -20px;
+}
+.divination.na-situaciyu #desk-card-8{
+    margin-top: -40px;
+}

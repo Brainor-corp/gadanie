@@ -1,0 +1,13 @@
+.divination.na-budushhego-muzha .desk {
+    height: 750px !important;
+}
+
+.divination.na-budushhego-muzha .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.na-budushhego-muzha .taro_bg {
+    height: 950px !important;
+}

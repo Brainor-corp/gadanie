@@ -1,0 +1,13 @@
+.divination.na-otnoshenie-k-lyubimogo-muzhchiny .desk {
+    height: 250px !important;
+}
+
+.divination.na-otnoshenie-k-lyubimogo-muzhchiny .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.na-otnoshenie-k-lyubimogo-muzhchiny .taro_bg {
+    height: 450px !important;
+}

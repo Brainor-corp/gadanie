@@ -1,0 +1,13 @@
+.divination.zhelanie-i-mechta .desk {
+    height: 750px !important;
+}
+
+.divination.zhelanie-i-mechta .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.zhelanie-i-mechta .taro_bg {
+    height: 950px !important;
+}

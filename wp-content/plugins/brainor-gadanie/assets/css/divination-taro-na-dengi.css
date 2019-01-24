@@ -1,0 +1,13 @@
+.divination.na-dengi .desk {
+    height: 460px !important;
+}
+
+.divination.na-dengi .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.na-dengi .taro_bg {
+    height: 750px !important;
+}
