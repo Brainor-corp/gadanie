@@ -1,0 +1,13 @@
+.divination.na-zavtrashnij-den .desk {
+    height: 350px !important;
+}
+
+.divination.na-zavtrashnij-den .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.na-zavtrashnij-den .taro_bg {
+    height: 550px !important;
+}
