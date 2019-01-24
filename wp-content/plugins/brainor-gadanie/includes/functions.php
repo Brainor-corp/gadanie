@@ -34,6 +34,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "pregrady-na-puti-lyubvi":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/pregrady-na-puti-lyubvi.php');
                     break;
+                case "v-poiskax-lyubvi":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/v-poiskax-lyubvi.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
