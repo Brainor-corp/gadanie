@@ -28,6 +28,12 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "zhelanie-i-mechta":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/zhelanie-i-mechta.php');
                     break;
+                case "na-dengi":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/na-dengi.php');
+                    break;
+                case "pregrady-na-puti-lyubvi":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/pregrady-na-puti-lyubvi.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
