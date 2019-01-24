@@ -55,6 +55,27 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on('click', '#add-element-by-group-btn', function (e) {
+        e.preventDefault();
+        var data = $('#add-element-by-group-form').serialize();
+        console.log(data);
+        $.ajax({
+            type: 'post',
+            url: '/wp-content/plugins/brainor-gadanie/includes/admin/get_element_by_group.php',
+            data: data,
+            cache: false,
+            beforeSend: function() {
+                // document.getElementById('ajax-loading-gif').style.display = 'block';
+            },
+            success: function(html){
+                $('#add-element-btn').before(html);
+            },
+            error:function(error){
+                console.log(error);
+            }
+        });
+    });
+
     $(document).on('click', '.del-element-btn', function (e) {
         e.preventDefault();
         var id=$(this).data("elementId");
