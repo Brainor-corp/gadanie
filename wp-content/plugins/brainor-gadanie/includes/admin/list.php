@@ -106,6 +106,9 @@
 
                 $sql = "SELECT id,name from `$divinationElementsTable`";
                 $divinationElements = $wpdb->get_results( $sql , ARRAY_A );
+
+                $sql = "SELECT DISTINCT class from `$divinationElementsTable`";
+                $elementGroups = $wpdb->get_results( $sql , ARRAY_A );
                 ?>
                 <form action="/wp-admin/admin.php?page=br_divination_list&type=edit<?php if(isset($_GET['id'])){ echo "&id=$_GET[id]"; }?>" method="post">
                     <div class="form-group">
@@ -176,7 +179,8 @@
                         <?php endforeach; ?>
                         <?php endif; ?>
                         <button id="add-element-btn" class="btn btn-primary">Добавить элемент</button>
-                    </div>
+                        <span class="btn btn-primary" data-toggle="modal" data-target="#addElementsGroup">Добавить группу элементов</span>
+
 
                     <div class="form-group">
                         <label for="thumb">Миниатюра</label>
@@ -195,6 +199,40 @@
                     </div>
                     <button type="submit" class="btn btn-success">Сохранить</button>
                 </form>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addElementsGroup" tabindex="-1" role="dialog" aria-labelledby="addElementsGroupLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="" method="" id="add-element-by-group-form">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addElementsGroupLabel">Добавление группы элементов</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="groupOfElements">Группа элементов</label>
+                            <select class="form-control" id="groupOfElements" name="groupOfElements">
+                                <option selected disabled value="">Выберите пункт</option>
+                                <?php foreach ($elementGroups as $elementGroup): ?>
+                                    <option value="<?php echo $elementGroup['class']; ?>">
+                                        <?php echo $elementGroup['class']; ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        <button id="add-element-by-group-btn" type="submit" class="btn btn-primary" data-dismiss="modal">Добавить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
             <?php else:?>
                 <div class="alert alert-danger alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
