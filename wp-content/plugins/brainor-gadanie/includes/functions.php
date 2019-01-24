@@ -25,6 +25,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "future-husband":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/future-husband.php');
                     break;
+                case "zhelanie-i-mechta":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/zhelanie-i-mechta.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
