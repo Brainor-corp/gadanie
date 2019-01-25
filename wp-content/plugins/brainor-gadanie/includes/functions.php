@@ -67,6 +67,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "indian-solitaire":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/solitaire/indian-solitaire.php');
                     break;
+                case "love-solitaire":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/solitaire/love-solitaire.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
