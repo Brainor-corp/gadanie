@@ -1,34 +1,34 @@
 <script>
-    if(!document.getElementById('divination-solitaire-css')) {
-        let style = document.createElement( 'link' );
+    if (!document.getElementById('divination-solitaire-css')) {
+        let style = document.createElement('link');
         style.setAttribute('id', 'divination-solitaire-css');
         style.setAttribute('rel', 'stylesheet');
         style.setAttribute('type', 'text/css');
         style.setAttribute('href', '/wp-content/plugins/brainor-gadanie/assets/css/divination-solitaire.css');
 
-        document.getElementsByTagName( 'head' )[ 0 ].appendChild(style);
+        document.getElementsByTagName('head')[0].appendChild(style);
     }
 
-    if(!document.getElementById('divination-solitaire-js')) {
-        let script = document.createElement( 'script' );
+    if (!document.getElementById('divination-solitaire-js')) {
+        let script = document.createElement('script');
         script.src = '/wp-content/plugins/brainor-gadanie/assets/js/divination-solitaire.js';
         script.id = 'divination-solitaire-js';
         script.type = 'text/javascript';
-        document.getElementsByTagName( 'head' )[ 0 ].appendChild(script);
+        document.getElementsByTagName('head')[0].appendChild(script);
     }
 </script>
 
 <!--<link rel="stylesheet" href="/wp-content/plugins/brainor-gadanie/assets/css/divination-solitaire-indian-solitaire.css">-->
 
 <?php
-global  $wpdb;
+global $wpdb;
 
 $width = 5; /////////////////////////////// Ширина поля
-$height = 4; ////////////////////////////// Высота поля
+$height = 5; ////////////////////////////// Высота поля
 
-$divinationTable = $wpdb->get_blog_prefix().'br_divinations';
-$divinationElementsTable = $wpdb->get_blog_prefix().'br_divination_elements';
-$divinationPivotTable = $wpdb->get_blog_prefix().'br_divination_elements_pivot';
+$divinationTable = $wpdb->get_blog_prefix() . 'br_divinations';
+$divinationElementsTable = $wpdb->get_blog_prefix() . 'br_divination_elements';
+$divinationPivotTable = $wpdb->get_blog_prefix() . 'br_divination_elements_pivot';
 
 $slug = 'personal-card-of-the-year';
 $wpdb->query('SET SESSION group_concat_max_len = 100000000000000000;');
@@ -51,22 +51,22 @@ $sql = '
 "pivot_thumb","<:>",IFNULL(DP.thumb, "NULL"),"<->",
 "pivot_description","<:>",IFNULL(DP.description, NULL),"<->"
 ) as elements 
-    from '.$divinationTable.' D
-    LEFT JOIN '.$divinationPivotTable.' DP on DP.divination_id = D.id
-    LEFT JOIN '.$divinationElementsTable.' DE on DP.divination_element_id = DE.id
-    WHERE D.slug = \''.$slug.'\'
+    from ' . $divinationTable . ' D
+    LEFT JOIN ' . $divinationPivotTable . ' DP on DP.divination_id = D.id
+    LEFT JOIN ' . $divinationElementsTable . ' DE on DP.divination_element_id = DE.id
+    WHERE D.slug = \'' . $slug . '\'
     ORDER BY D.id ASC';
-$divination = $wpdb->get_row( $sql , ARRAY_A );
+$divination = $wpdb->get_row($sql, ARRAY_A);
 
 $resultArr = [];
-$elements = explode('<|>',$divination['elements']);
-foreach ($elements as $elKey=>$element){
-    if(strlen($element) > 0){
+$elements = explode('<|>', $divination['elements']);
+foreach ($elements as $elKey => $element) {
+    if (strlen($element) > 0) {
         $rows = explode('<->', $element);
-        foreach ($rows as $rowKey=>$row) {
+        foreach ($rows as $rowKey => $row) {
             if (strlen($row) > 0) {
                 $keyValues = explode('<:>', $row);
-                $resultArr[$elKey][$keyValues[0]]=$keyValues[1];
+                $resultArr[$elKey][$keyValues[0]] = $keyValues[1];
             }
         }
     }
@@ -74,17 +74,71 @@ foreach ($elements as $elKey=>$element){
 }
 $divination['elements'] = $resultArr;
 ?>
+<div class="row">
+    <div class="col-12">
+        Предлагаем вашему вниманию один из интереснейших и занимательных видов предсказания будущего! Гадание Индийский
+        пасьянс происходит при помощи специальных изображений символов, отражающих то или иное предсказание. Если вы
+        желаете получить информацию, сконцентрируйтесь и мысленно обозначьте желаемый вопрос или ситуацию. Карточки как
+        будто настраиваются на гадающего, его эмоции, а также обладают способностью развития интуиции и логики человека.
+    </div>
+    <div class="col-12">
+        <h2>Принципы и правила гадания</h2>
+        <ul>
+            <li>
+                Пасьянс — гадание Индийский пасьянс состоит из 25 карточек с различными
+                символами, которые выкладываются в 5-ть рядов по 5-ть карт в каждом из них;
+            </li>
+            <li>
+                После этого карточки нужно поворачивать таким образом, чтобы совпали изображения на них. При этом нельзя
+                менять местоположение карт, они вращаются только вокруг оси;
+            </li>
+            <li>
+                Именно из толкования совпавших карточек составляется предсказание;
+            </li>
+        </ul>
+    </div>
+    <div class="col-12">
+        <h2>Соседние и «разорванные» карты</h2>
+        <ul>
+            <li>
+                «Цельное» предсказание расклада формируется из всех совпавших в раскладе карт. Как правило их количество
+                варьируется от 2 до 5 шт.;
+            </li>
+            <li>
+                Когда вы получили предсказание, внимательно рассмотрите соседние карты – зачастую они влияют на
+                толкование полученного значения;
+            </li>
+            <li>
+                Вам может попасться так называемая «разорванная» карта, изображение которой совпадает через одну карту.
+                При качественном толковании их также нужно учитывать!
+            </li>
+        </ul>
+    </div>
+    <div class="col-12">
+        <i>
+            <b>
+                Внимание:
+            </b>
+            до проведения гадания сосредоточьтесь и сформулируйте вопрос, ответ на который желаете получить.
+            Не стоит раскладывать Индийский пасьянс чересчур часто, так как при этом снижается
+            вероятность правдоподобных ответов.
+        </i>
+    </div>
+</div>
 
 <div class="divination-solitaire indian-solitaire" id="<?php echo uniqid() ?>">
-    <button class="reload">Разложить карты</button>
+    <div style="text-align: center">
+        <button class="reload">Разложить карты</button>
+    </div>
     <div class="sol-table">
-        <?php for($i = 0; $i < $height; $i++): ?>
+        <?php for ($i = 0; $i < $height; $i++): ?>
             <div class="sol-row">
-                <?php for($j = 0; $j < $width; $j++): ?>
+                <?php for ($j = 0; $j < $width; $j++): ?>
                     <div class="sol-col">
-                        <img src="http://gadalkindom.ru/wp-content/themes/gadalkindom2/skripts2/pasians-indiiskiy/img/bg.jpg" class="card-img" data-rotate="0" alt="">
-                        <a href="#" class="rotate-left"><-</a>
-                        <a href="#" class="rotate-right">-></a>
+                        <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/bg.jpg" class="card-img"
+                             data-rotate="0" alt="">
+                        <a href="#" class="rotate-left"></a>
+                        <a href="#" class="rotate-right"></a>
                     </div>
                 <?php endfor; ?>
             </div>
@@ -92,9 +146,692 @@ $divination['elements'] = $resultArr;
     </div>
 
     <div class="elements">
-        <?php for($i = 0; $i < $width * $height; $i++): ?>
-            <div class="element" data-img="http://gadalkindom.ru/wp-content/themes/gadalkindom2/skripts3/pasians-na-budushee/img/1.jpg"></div>
+        <?php for ($i = 0; $i < $width * $height; $i++): ?>
+            <div class="element"
+                 data-img="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/<?php echo $i + 1 ?>.jpg"></div>
         <?php endfor; ?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <h2>Определяем время полученного предсказания</h2>
+
+        <p> Принято считать что гадание Индийский пасьянс на ближайшее будущее показывает грядущее приблизительно на
+            45-60
+            дней. Не трудно догадаться что каждый ряд в нём означает примерно 7-10 дней, зная это вы легко можете
+            просчитать
+            время грядущих изменений и предостережений.
+        </p>
+
+        <p>
+            <b>Например:</b> Звёзды – это предстоящие перемены. Например, вы гадаете 1-го числа, в 3-м ряду у вас
+            совпали Звёзды и
+            Луна, прибавляйте 3 недели – получится примерно 22-ое число. Таким образом, вы узнаете дату начала изменений
+            –
+            примерно середина следующего месяца. Если Звёзды окружены плохими картами, можно говорить об изменениях в
+            худшую
+            сторону примерно в этот же период.
+        </p>
+
+
+        <h2>Толкование значения карт</h2>
+        <p>
+            Как правильно толковать онлайн гадание на картах Индийского пасьянса? Ниже мы собрали толкования 50 символов
+            расположенных на всех 25 карточках этого оракула. Надите выпавшую именно Вам и ознакомьтесь с толкованием!
+        </p>
+    </div>
+    <div class="col-12">
+        <table class="table table-bordered bg-transparent">
+            <tbody>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/kamen.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Камни.</b> Четкий признак и показатель существования преград на пути, препятствий в реализации
+                    планов и
+                    идей. Характер препятствия можно определить при выпавших рядом картинках: Замка, Пиковой Дамы,
+                    Черепа и т.д.
+                </td>
+            </tr>
+
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/glaz.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Плачущий глаз.</b> Символ неудачи, переживаний, неприятных событий, стресса. Причина всего этого
+                    может
+                    находиться в ближайших картах. Рассмотрите их внимательно.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/venok.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Венок. </b>Без сомнения отличный знак! Показатель успешности в делах, достигнутой цели. При
+                    гадании на
+                    год — предсказание славы и почёта. При гадании на любовь — удачное развитие отношений со скорым
+                    итогом: помолвкой, свадьбой и т.п.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/raduga.jpg"
+                         alt="">
+                </td>
+                <td>
+
+                    <b>Радуга.</b> Символ отличного настроения, беззаботности, веселья. Встречается довольно редко. При
+                    гадании
+                    на ситуацию связанную с работой — Индийский пасьянс предсказывает Вам очень интересную и хорошо
+                    оплачиваемую рабочую деятельность.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/parus.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Парус.</b> Олицетворяет робкого и очень нерешительного человека. Вместе с Пингвином –
+                    олицетворяет
+                    человека, который не отважится на какое-либо действие, он топчется на месте и никак ни на что не
+                    решится. В этом кроется возможная причина его неудач. Карта выступает в качестве совета предпринять
+                    более решительные действия а не плыть «по ветру».
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/sharik.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Воздушный шар.</b> Бывают дни, когда карты не желают предсказывать. В этом случае лучше оставить
+                    их в
+                    покое и отложить Индийский пасьянс на ближайшее будущее — лучше всего на неделю.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/verblud.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Верблюд.</b> Символ богатства, высокого дохода, прибыли, денег. Вам предстоит получить
+                    (однократно)
+                    значительный доход. Это, безусловно, очень приятная карта. Вы вправе ожидать от судьбы сюрприза. В
+                    виде разорванной карты трактуется, как материальные расходы любого рода (как оправданные, так и не
+                    совсем нужные).
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/dom.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Дом.</b> Ваша личная жизнь претерпит значительные изменения, возможен также переезд на новое
+                    место
+                    жительства. Имеет значение ухода мужа от жены и наоборот. Это очень важная и серьёзная карта, она
+                    способна предсказывать как позитивные изменения при соседстве с добрыми картами, так и негативные –
+                    рядом с плохими.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/parashut.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Парашют.</b> Вам предстоит совершить очень смелый поступок, результат которого, однако, окажется
+                    благоприятным, и вы сможете видеть его последствия. Расценивайте этот символ, как призыв совершить
+                    поступок, так как он ведёт вас к успеху. Если карта выпадает в разорванном виде по вертикали либо
+                    горизонтали (в одном из этих направлений), есть вероятность того, что вы так и не отважитесь на
+                    некий поступок или упустите его. Постарайтесь все же использовать этот шанс. Он сможет помочь вам
+                    предотвратить некое нежелательное событие, неприятность.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/korona.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Корона.</b> Очень мощная карта, и в то же время прекрасный знак практически в любой ситуации.
+                    Предсказывает успешность в деловой сфере, достижение целей, осуществление задуманного. Однако
+                    разорванная по одной полосе карта означает невозможность достижения цели. По находящимся в
+                    непосредственной близости карточкам вы сможете определить причину неудач: будут то преграды на пути,
+                    неверное решение с вашей стороны или иная причина.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/kolca-obruchalnie.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Обручальные кольца</b> – обладает несколькими толкованиями.
+                    1) Для девушки. Если вы задумывали предсказание на год — это явный знак замужества в предстоящем
+                    году. В этом случае обязательно нужно смотреть на располагающиеся рядом карты. Если выпали Часы,
+                    есть вероятность того, что вы или не примете это предложение, либо возьмёте время на обдумывание
+                    своего решения. Далее идут плохие карты? Они могут поставить предстоящий брак под сомнение. Когда
+                    какая-нибудь другая карточка разрывает кольцо, это может свидетельствовать об утрате браком своей
+                    ценности. В случае нахождения его половинок далеко друг от друга по одной линии можно говорить о
+                    существовании угрозы распада брачного союза.
+                    <br>
+                    2) Для женщины, состоящей в браке, данный символ обозначает его прочность, даже при наличии
+                    некоторых трений между супругами в данный момент.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/konvert.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Конверт.</b> Получение важного известия, способного повлиять на Ваши планы в отношении любви,
+                    работы и
+                    прочим житейским делам. При гадании на ближайшее будущее имеет отношение больше к деловой сфере, чем
+                    к личной. При гадании на долгий срок может относится к обоим сферам.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/cherep.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Череп.</b> Не стоит пугаться этого символа. Он отнюдь не обозначает смерть, скорее отражает вашу
+                    усталость, как физическую, так и душевную, а также выступает предостережением от переутомлений,
+                    способных вылиться в нервный срыв. Вы можете сами докопаться до причины проблем, проследив
+                    траекторию движения Черепа. Предположим, он ведёт в Замок (отсутствие возможности решить проблему,
+                    денежные потери). Таким образом, вы найдёте причину. Главное – никогда не сдавайтесь!
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/vopros.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Вопросительный знак.</b> Некий мучающий Вас вопрос, проблемная ситуация требующая решения. Порой,
+                    выпавшие по соседству карты способны подсказать способ разрешения проблемы. В более широком смысле
+                    неопределенность которую не удастся разрешить в скором будущем.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/valet.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Валет.</b> Любящий вас мужчина или преданный друг. Важный символ, при разрыве по одной полосе –
+                    ухудшение отношений. Каковы причины? Смотрите на карты, выпавшие между половинками картинки Валета,
+                    они и помогут истолковать причину. Следует отметить, что здесь нужно учитывать даже половины
+                    изображений, так как они отражают мысли и чувства мужчины. К примеру, половинки Вопрос, Корона,
+                    Пиковая дама могут означать сомнения мужчины относительно необходимости ему этой связи. Каким-то
+                    образом вы можете мешать ему в реализации задач, возможно, вы не нравитесь его маме и т.д. То есть
+                    ближайшие карты раскрывают суть проблемы, её происхождение.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/dva-serdca.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Два сердца.</b> Вы влюблены, и что гораздо важнее — Вас тоже любят. В случае разрыва изображения
+                    символом Дорога – вероятность ухудшения отношений в поездке. Напомним, что нельзя упускать из
+                    внимания подсказки расположенных рядом карт, которые дает онлайн гадание Индийский пасьянс! Не
+                    торопитесь и ищите подсказки!
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/dama-chervi.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Дама червей.</b> Обозначает вашу ближайшую подругу, и её добрые намерения по отношению к Вам.
+                    Если
+                    произошёл разрыв символа и при этом рядом находится знак Рыба – ссора с подругой. Когда рядом
+                    встречаются Очки – предупреждение о двуличности подруги и отсутствии доверия к ней.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/orel.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Орёл.</b> Указывает на наличие помогающего вам покровителя. При гадании на работу — мудрого
+                    начальника.
+                    Символизирует помощь и поддержку в сложные периоды, вероятность знакомства с солидной и
+                    состоятельной личностью. Разорванный одной картой, Орёл предсказывает риск ссоры с ним и потерю его
+                    доверия, расположения (это приобретает ещё большую вероятность в случае следования в дальнейшем
+                    негативных карт). Данный символ можно истолковать и как обещание знакомства, которое окажется очень
+                    выгодным и полезным. На толкование также сильно влияет местоположения карточки в раскладе.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/grob.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Гроб.</b> Одна из самых негативных карт Индийского пасьянса. Предсказывает ухудшение состояния
+                    здоровья,
+                    надежды, которым не суждено осуществиться, а также большие трудности в реализации планов.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/nojnici.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Ножницы.</b> Возможно, вы считаете, что ваше нынешнее положение безвыходное. В действительности
+                    же это
+                    не так! Всё разрешимо, обращайте особое внимание на ближайшие символы. Нахождение рядом с Ножницами
+                    Замка, Часов, Черепа означает серьёзность проблемы и необходимость предварительного обдумывания
+                    решений во избежание переутомления, перенапряжения, физического и эмоционального истощения.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/korol.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Король.</b> Наличие в судьбе светлого, положительного человека (при отсутствии в окружении
+                    негативных
+                    символов). Означает карта следующее: помощь в вашем деле стоит ожидать от официального
+                    представителя, Вы можете его знать или познакомитесь с ним в скором времени. Нужно отметить
+                    многоликость этой карты и толковать максимально внимательно!
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/kluch.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Ключ.</b> Вам удастся разрешить возникший вопрос. Разорванный Ключ по одной линии – не сможете
+                    решить
+                    проблему. При совпадении половинок изображения можно говорить о благоприятном завершении дел в
+                    скором времени (большое значение имеет полоса, в которой находится Ключ).
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/svechi.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Горящие свечи.</b> Добрый знак! Олицетворяет появление оптимистического настроя, веры в будущее,
+                    ожидание хорошего. Является показателем завершения черной полосы в жизни. Случается, что карты в
+                    раскладе располагаются таким образом, что можно определить источник веры и оптимизма (например,
+                    из-за получения денежных сумм, каких-то приятных поездок, путешествий, полезных знакомств и т.д.).
+                    Главное – внимательно и вдумчиво относиться к толкованию окружающих карт.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/listnica.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Лестница.</b> Обещание подъёма в карьере, делах, успехов в начинаниях. Для человека, не имеющего
+                    на
+                    данный момент времени работы, означает осуществление задуманного для её получения, например
+                    собеседование или деловую встречу.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/ochki.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Очки.</b> Намекает на существование в вашем окружении неискренней и лицемерной личности.
+                    Возможно, вы
+                    даже знаете, кто это: в вашем присутствии говорящий и делающий одно, а за спиной – совсем иное.
+                    Посмотрите, что выпало в окружении. Пиковая дама? Червовая? Или это ваш близкий человек? Соседние
+                    символы подскажут, в ком причина подвоха. Карта предупреждающего характера, даёт повод для
+                    размышлений.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/serdce-strela.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Сердце со стрелой.</b> Символ безответной, неразделенной любви. К сожалению и такое случается —
+                    это
+                    жизнь не все чувства бывают взаимными. Что делать, подскажут соседние карты Индийского пасьянса
+                    онлайн, при гадании на будущее — трактуется как разочарование в некоем деле или направлении работы,
+                    прежде всего духовное а не материальное.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/sunduk.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Сундук.</b> Это очень хороший знак! Сулит Вам получение прибыли, денежные поступления, удачную
+                    сделку с
+                    получением хорошего дохода. Кроме того, это ещё и обозначение осознанных и целевых трат или вкладов.
+                    При гадании на бизнес — некое предприятие которое сможет сохранить и приумножить Ваш капитал.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/kinjal-serdce.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Сердце с ножом.</b> Душевные страдания, муки из-за безответного, неразделённого чувства,
+                    неудавшийся
+                    роман. В более широком смысле предательство со стороны близких. Длительное пребывание в подобном
+                    состоянии способно довести до глубокой депрессии и эмоционального опустошения. Как правило, карта
+                    выпадает при разладах в семье, когда человек ощущает уныние и обречённость. Здесь ничего не
+                    поделаешь, нужно просто пережить это. Однако в случаях выпадения рядом Разорванного ожерелья или
+                    Больничной кровати нужно признать, что проблема остаётся неразрешённой. Нужно подумать, стоит ли
+                    бороться за сохранение этих отношений. В данном случае пасьянс не оставляет Вам никаких надежд…
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/koster.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Костер.</b> Вас ожидает яркая и неожиданная влюблённость. Вы 100% испытаете новые и неизведанные
+                    ощущения. Всё будет не так, как бывало раньше. Обратите внимание на соседние карты, что они вам
+                    сулят? Разочарование? Неудачу? Если да, то задумайтесь, нужно ли вам это.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/chasi.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Часы.</b> Дополняющая карта. Вас предостерегают от поспешности в принятии решений. Рекомендация
+                    пасьянса
+                    сделать паузу и хорошенько всё обдумать. Идущие далее негативные карты, указывают на то, в каких
+                    именно делах вы слишком торопитесь.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/podkova.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Подкова.</b> Мощный и верный знак удачи, успехов в делах, осуществление задуманного. В то же
+                    время, это
+                    показатель того, что у вас отсутствует какая то большая цель. Вы просто надеетесь на удачу.
+                    Прекрасно, когда рядом видите Корону или Венок. Но и одна Подкова – тоже вполне позитивный символ.
+                    При раскладе пасьянса на любовь и суженого — случайная и удачная встреча с возлюбленным.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/ribka.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Рыба.</b> Предсказание дискуссий, споров, ссор, обличительного разговора с взаимными обвинениями.
+                    При
+                    гадании на работу и бизнес — предвестник судебной тяжбы. при гаднии на ближайшее будущее знак
+                    скорого спора с близкими людьми. Постарайтесь избегать таких ситуаций, поскольку ни к чему хорошему
+                    они не приведут, в особенности, когда в окружении встречаются карты, обозначающие вероятность
+                    стрессов, болезней, других неприятностей.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/vesi.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Весы.</b> Важное решение с Вашей стороны. В этот раз постарайтесь обойтись без спешки, всё
+                    обдумайте
+                    самым тщательным образом. Обратите внимание на разорванную карту: находящиеся между её половинками
+                    карты – это возможные последствия необдуманного решения. Так, знак Верблюд (обозначающий деньги)
+                    либо Плачущий глаз могут свидетельствовать о том, что вы приняли какое-то ошибочное решение,
+                    последствиями которого стали денежные потери, огорчение и расстройства по этому поводу. А чём
+                    причина? Понимаете?
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/ojerelie-rvanoe.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Разорванное ожерелье.</b> Олицетворение упущенного момента, шанса. Возможно вы этого еще не
+                    поняли и
+                    продолжаете стучаться в уже закрытую дверь. Показывает события в прошлом, суть которых можно
+                    определить по окружающим картам. Рассмотрите их внимательно: понимание прошлого — ключ к пониманию
+                    будущего!
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/rumka.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Бокал вина.</b> Время в весёлой компании, приглашение в гости, на вечеринку день рождение. В
+                    случае
+                    соседства с Валетом (обозначающим любящего вас человека), можно говорить о чрезмерном пристрастии
+                    этого человека к спиртному и вероятности возникновения у него алкогольной зависимости. При гадании
+                    на любовь — может значить шумны мальчишник \ девичник.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/pingvin.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Пингвин.</b> Карта, отражающая не событие, а скорее выступающая в качестве характеристики
+                    человека.
+                    Может означать как кверента, так и человека на которого указывает расклад. Встречается нечасто.
+                    Характеризует человека как робкого, постоянно сомневающегося, испытывающего трудности при выборе
+                    пути, метущегося и из-за этого часто пропускающего удобный момент для действий. В соседстве с
+                    разрезанными картами Весов или Парашюта свидетельствует о нерешительности человека, который упустил
+                    счастливый шанс. В более широком смысле означает нерешительность, трусость.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/dama-pik.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Пиковая дама.</b> Показатель чьей-то ненависти, зависти, презрения, ревности. Чаще пасьянс
+                    указывает
+                    этой картой на женщину. В вашем окружении есть кто-то вероломный, способный на подлые поступки. Как
+                    правило, эта карта является обозначением женщины, старше вас – свекрови, тещи, сотрудницы, соседки.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/ojerelie-zastegnutoe.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Ожерелье застегнутое.</b> Готовящаяся по отношению к Вам подлость или предстоящие неприятности,
+                    которые
+                    возможно предотвратить, ещё есть для этого время. Глядя на окружающие карты, вы можете определить,
+                    кто же является их причиной, а также возможные последствия этих событий. Возникнет ли проблема,
+                    разрешить которую не представляется возможным (Замок), или вас ожидает неудача и вероятность стресса
+                    (Плачущий глаз).
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/krovat-serdce.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Кровать с сердечком.</b> Обещание незабываемого секса или страстного свидания с поцелуями «в
+                    засос».
+                    Обязательно смотрите на находящиеся рядом карты. Костер сулит вам новое романтическое увлечение,
+                    интимные отношения. Бывает, что выпадает одна половина от Любовной кровати, а другая — от
+                    больничной. Это указывает на отсутствие радости от интимных отношений, которые приносят больше боли,
+                    чем удовольствия. Встретилось разорванное Кольцо рядом? Скорее всего, брак больше не представляет
+                    для вас былой ценности.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/zamok.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Замок.</b> Неразрешимая проблема. Когда в раскладе встречается Ключ, это даёт надежду на
+                    благоприятное
+                    разрешение ситуации. Если выпадают карты с негативным значением, такие как Больничная койка,
+                    Плачущий глаз, это нужно расценивать, как предсказание ухудшения ситуации.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/molniya.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Молния.</b> Знак внезапного и скорее всего неприятного события, известия. Рассмотрите карты в
+                    окружении.
+                    В чём причина? Например, выпал Орёл. Это означает, что неприятность исходит от официального лица.
+                    Как и многие другие карты Индийского гадания пасьянса эта требует анализа находящихся рядом карт.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/zmeya-1.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Змея.</b> Распускание вашими недоброжелателями сплетен, обвинения в ваш адрес (возможно, имеющие
+                    основания). Выпавшая в раскладе Червовая дама обозначает вашу злословящую подругу. Вместе с Очками –
+                    двуличная персона рядом с вами.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/krovat-bolnica.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Больничная койка.</b> Это в буквальном смысле обозначение скорой болезни либо предупреждение о
+                    ней, а
+                    также вероятность несчастного случая. Необходимо соблюдать осторожность! Карта может предупредить
+                    как кверента в случае гадания на будущее, так и его близких в случае гадания на конкретного
+                    человека. В любовном гадании карта может предупреждать о нежелательных «постельных» отношениях.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/doroga.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Дорога.</b> Перспектива интересного путешествия, переезда, деловой командировки осуществление
+                    запланированного в пути (по деловому вопросу). В целом положительная карта и сама по себе означает
+                    удачное стечение обстоятельств. Разорванная одной картой, означает ваши мысли о поездке, предпринять
+                    которую вы пока не смогли по каким-то причинам. Обратите особое внимание на карты рядом. В случае
+                    обнаружения в окружении плохих карт откажитесь от путешествия, поскольку оно может оказаться не
+                    безопасным.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/solnce.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Солнце.</b> Знак прекрасного настроения, подъема жизненных сил. Встречается очень нечасто, так
+                    как
+                    требует для своего появления серьёзных оснований. Соседние карты подскажут вам источник прилива
+                    энергии.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/krug-konvert.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Письмо в кольце.</b> Получение долгожданного известия, которое все же не сможет значительно
+                    повлиять на
+                    положение дел, так как попросту опоздает. К примеру, супруги уже разошлись, и вдруг вы слышите от
+                    бывшего мужа, что он вас по-прежнему любит и хочет быть снова вместе. А при этом вы уже или в новых
+                    отношениях, или просто остыли к нему окончательно.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/golub.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Голубь.</b> Существование в вашей жизни верного и преданного друга. Карта может также означать
+                    верность
+                    вашего партнёра, является показателем мира, любви и гармонии, царящих в семье. При гадании на любовь
+                    — означает мирный и счастливый союз. При гадании на ближайшее будущее мир и гармония в житейских
+                    делах.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/zvonok.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Колокольчик.</b> Предсказание долгожданной радостной новости, о которой вам захочется рассказать
+                    всему
+                    свету. Однако не нужно этого делать Индийский пасьянс рекомендует оставить эту информацию в секрете!
+                    Через пару дней вы поймете почему, а пока молчите!
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/yakor.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Якорь.</b> Свидетельствует о неких задержках в делах. Рядом с хорошими картами означает просто
+                    вашу
+                    потребность в отдыхе. В соседстве с плохими — трактуется, как ваше бессилие перед лицом трудностей.
+                    Также имеет значение незапланированного, но очень необходимого вам отпуска.
+                </td>
+            </tr>
+            <tr>
+                <td class="description-img">
+                    <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/pasians-indiiskiy/descriptions/luna-zvezdi.jpg"
+                         alt="">
+                </td>
+                <td>
+                    <b>Луна и Звёзды.</b> Является просто удивительной картой, поскольку способна поразительно точно (с
+                    определением сути событий и даже конкретного дня) предсказывать жизненные перемены. Важным является
+                    её положение в гадании и конечно расположенные рядом карты!
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="text-center"><b>Удачного Вам расклада!</b></p>
     </div>
 </div>
 

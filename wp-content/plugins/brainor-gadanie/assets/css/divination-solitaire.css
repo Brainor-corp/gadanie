@@ -27,14 +27,23 @@
     visibility: hidden;
     -webkit-transition: opacity 600ms, visibility 600ms;
     transition: opacity 600ms, visibility 600ms;
+
 }
 
 .divination-solitaire .sol-table .sol-row .sol-col .rotate-left {
     left: 5px;
+    background-image: url("/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/l.png");
+    width: 30px;
+    height: 150px;
+    background-repeat: no-repeat;
 }
 
 .divination-solitaire .sol-table .sol-row .sol-col .rotate-right {
     right: 5px;
+    background-image: url("/wp-content/plugins/brainor-gadanie/assets/imgs/solitaire/r.png");
+    width: 30px;
+    height: 150px;
+    background-repeat: no-repeat;
 }
 
 .divination-solitaire .sol-table .sol-row .sol-col.loaded:hover a {
@@ -55,4 +64,7 @@
     margin-top: 5px;
     color: black;
     width: 180px;
+}
+.description-img{
+    width: 140px;
 }
