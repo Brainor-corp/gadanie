@@ -20,14 +20,15 @@ function reloadSolitaire($, divinationIdStr) {
 
     elements = shuffle(elements);
 
-    console.log(elements);
-
     $('#' + divinationIdStr + '.divination-solitaire .card-img').each(function( ) {
         let image = $(this);
 
         image.fadeOut('slow', function () {
             image.attr('src', elements.pop());
-            image.fadeIn('slow');
+            image.fadeIn('slow', function () {
+                let angle = image.data('rotate') - 90 * Math.floor(Math.random() * 3 + 1);
+                image.animateRotate(image.data('rotate'), angle, 500, 'linear', image.data('rotate', angle));
+            });
         });
 
         image.closest('.sol-col').addClass('loaded');

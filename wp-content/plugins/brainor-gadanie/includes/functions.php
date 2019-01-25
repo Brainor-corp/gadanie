@@ -64,6 +64,21 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "na-zavtrashnij-den":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/taro/na-zavtrashnij-den.php');
                     break;
+                case "indian-solitaire":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/solitaire/indian-solitaire.php');
+                    break;
+                case "love-solitaire":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/solitaire/love-solitaire.php');
+                    break;
+                case "kogda-ya-vidu-zamuj-solitaire":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/solitaire/kogda-ya-vidu-zamuj-solitaire.php');
+                    break;
+                case "na-budushee-solitaire":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/solitaire/na-budushee-solitaire.php');
+                    break;
+                case "na-jelanie-solitaire":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/solitaire/na-jelanie-solitaire.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
