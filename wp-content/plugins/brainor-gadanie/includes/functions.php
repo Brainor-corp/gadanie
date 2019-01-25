@@ -76,6 +76,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "na-budushee-solitaire":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/solitaire/na-budushee-solitaire.php');
                     break;
+                case "na-jelanie-solitaire":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/solitaire/na-jelanie-solitaire.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
