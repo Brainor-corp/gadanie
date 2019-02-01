@@ -1,5 +1,5 @@
 .divination.goroskop .desk {
-    height: 550px !important;
+    height: 750px !important;
 }
 
 .divination.goroskop .desk .desk-cards {
@@ -12,10 +12,10 @@
     height: 750px !important;
 }
 .divination.goroskop #desk-card-1{
-    margin-top: -140px;
+    margin-top: -230px;
 }
 .divination.goroskop #desk-card-7{
-    margin-top: 160px;
+    margin-top: 90px;
 }
 .divination.goroskop #desk-card-12{
     margin-left: 50px;
@@ -24,5 +24,5 @@
     margin-right: 50px;
 }
 .divination.goroskop .desk-cards{
-    margin-bottom: -50px;
+
 }
