@@ -34,7 +34,7 @@ $sql = '
         D.id,
         D.name,
         D.slug,
-        D.option_1,
+        DE.option_1,
         D.description,
         D.thumb,
         D.created_at,
@@ -140,9 +140,8 @@ echo $wpdb->last_error;
                             default:    $revertText = 'Неопределено';
                         }
                         ?>
-                        <span class="answer-default"><?php echo $answer[0] ?></span>
-                        <span class="answer-default"><?php echo $defaultText ?></span>
-                        <span class="answer-rever"><?php echo $revertText ?></span>
+                        <span class="answer-default"><p>Прямое положение: <?php echo $defaultText ?></p></span>
+                        <span class="answer-rever"><p>Перевёрнутое положение: <?php echo $revertText ?></p></span>
                     </div>
                 <?php endforeach; ?>
             </div>
