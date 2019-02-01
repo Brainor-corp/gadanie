@@ -10,18 +10,28 @@
     <?php if($_POST['type'] == 'taro-import'):?>
         <?php
             $table = $wpdb->get_blog_prefix().'br_divination_elements';
-            $place_holders = array( '%s', '%s', '%s', '%s');
+            $place_holders = array( '%s', '%s', '%s', '%s', '%s', '%s');
             $handle = fopen($_FILES['myFile']['tmp_name'], "r");
+            $isFirstLine = true;
             while (($row = fgetcsv($handle, 10000, ';')) !== false) {
 //                $row = str_replace('\n', '<br>', $row);
 //                var_dump($row);
+                if($isFirstLine) {
+                    $isFirstLine = false;
+                    continue;
+                }
+
+
+
                 $wpdb->insert(
                     $table,
                     array(
                         'name' => $row[0],
+                        'class' => 'taro',
                         'slug' => sanitize_title($row[0]),
                         'description' => $row[1],
-                        'thumb' => $row[2]
+                        'thumb' => $row[2],
+                        'option_1' => $row[3]
                     ),
                     $place_holders
                 );

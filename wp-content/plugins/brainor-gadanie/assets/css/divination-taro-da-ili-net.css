@@ -1,0 +1,13 @@
+.divination.da-ili-net .desk {
+    height: 160px !important;
+}
+
+.divination.da-ili-net .desk .desk-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divination.da-ili-net .taro_bg {
+    height: 450px !important;
+}
