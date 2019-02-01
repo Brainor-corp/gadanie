@@ -34,6 +34,7 @@ $sql = '
         D.id,
         D.name,
         D.slug,
+        D.option_1,
         D.description,
         D.thumb,
         D.created_at,
@@ -41,6 +42,7 @@ $sql = '
 "<|>id","<:>",IFNULL(DE.id, "NULL"),"<->",
 "name","<:>",IFNULL(DE.name, "NULL"),"<->",
 "slug","<:>",IFNULL(DE.slug, "NULL"),"<->",
+"option_1","<:>",IFNULL(DE.option_1, "NULL"),"<->",
 "class","<:>",IFNULL(DE.class, "NULL"),"<->",
 "description","<:>",IFNULL(DE.description, "NULL"),"<->",
 "thumb","<:>",IFNULL(DE.thumb, "NULL"),"<->",
@@ -70,6 +72,9 @@ foreach ($elements as $elKey=>$element){
 
 }
 $divination['elements'] = $resultArr;
+
+echo $wpdb->last_error;
+
 ?>
 
 <div class="divination da-ili-net" data-card-count="1" id="<?php echo uniqid() ?>">
@@ -121,7 +126,23 @@ $divination['elements'] = $resultArr;
                     ?>
                     <div class="hidden-card" id="hidden-card-<?php echo $key ?>" data-name="card-<?php echo $element['name'] ?>" data-img="<?php echo $thumb; ?>" style="display: none">
                         <h2>Карта <span class="card-name"><?php echo $element['name'] ?> <span class="is-revert"></span></span></h2>
-                        <span><?php echo $description ?></span>
+                        <?php
+                        $answer = explode('|', $element['option_1']);
+                        switch ($answer[0]) {
+                            case '0':   $defaultText = 'Нет'; break;
+                            case '1':   $defaultText = 'Да'; break;
+                            default:    $defaultText = 'Неопределено';
+                        }
+
+                        switch ($answer[1]) {
+                            case '0':   $revertText = 'Нет'; break;
+                            case '1':   $revertText = 'Да'; break;
+                            default:    $revertText = 'Неопределено';
+                        }
+                        ?>
+                        <span class="answer-default"><?php echo $answer[0] ?></span>
+                        <span class="answer-default"><?php echo $defaultText ?></span>
+                        <span class="answer-rever"><?php echo $revertText ?></span>
                     </div>
                 <?php endforeach; ?>
             </div>
