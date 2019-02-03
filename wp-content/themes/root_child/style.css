@@ -1,0 +1,48 @@
+/*
+Theme Name: Root Child
+Theme URI: http://wpshop.biz/themes/root
+Author: WPShop.biz
+Author URI: http://wpshop.biz/
+Template: root
+Version: 1.0.0
+*/
+
+/* Below you can add your CSS styles */
+/* Ниже Вы можете добавить свои CSS стили */
+
+.divination-content-area{
+    width: 100%!important;
+}
+.entry-image img{
+    width: 100%;
+    height: auto;
+}
+.clear-none .post-card:nth-child(odd) {
+    clear: none!important;
+}
+/*.posts-container--three-columns .post-card:nth-child(4) {*/
+    /*clear: left;*/
+/*}*/
+/*.posts-container--four-columns .post-card:nth-child(5) {*/
+    /*clear: left;*/
+/*}*/
+.clear-none .post-card{
+    clear: none!important;
+}
+
+@media (min-width: 1200px){
+    .post-card.category-divination_online {
+        width: 330px;
+    }
+}
+
+@media (min-width: 992px){
+    .posts-container--three-columns .post-card.category-divination_online {
+        width: calc(33% - 40px);
+    }
+    .posts-container--four-columns .post-card.category-divination_online {
+        width: calc(25% - 50px);
+    }
+}
+
+
