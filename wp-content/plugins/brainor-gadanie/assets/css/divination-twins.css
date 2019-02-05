@@ -28,3 +28,7 @@
 .divination-twins .twins-control button.br-divination-btn:hover {
     background-color: white;
 }
+
+.divination-twins .twins-elements .twins-element {
+    display: none;
+}
