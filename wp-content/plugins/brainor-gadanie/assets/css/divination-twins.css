@@ -1,0 +1,34 @@
+.divination-twins {
+    width: 100%;
+    background-color: #f5eedc;
+    padding: 10px;
+}
+
+.divination-twins .twins-control {
+    float: right;
+    padding: 5px;
+}
+
+.divination-twins .twins-control .twins-images img {
+    max-width: 100%;
+}
+
+.divination-twins .twins-control button.br-divination-btn {
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.divination-twins .twins-control .twins-counter {
+    text-align: center;
+}
+
+.divination-twins .twins-control button.br-divination-btn:hover {
+    background-color: white;
+}
+
+.divination-twins .twins-elements .twins-element {
+    display: none;
+}
