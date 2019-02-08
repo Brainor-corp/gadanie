@@ -85,6 +85,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "twins":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/twins/twins.php');
                     break;
+                case "egyptian-oracle":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/egyptian-oracle/egyptian-oracle.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
