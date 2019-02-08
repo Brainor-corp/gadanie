@@ -91,6 +91,12 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "egyptian-oracle":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/egyptian-oracle/egyptian-oracle.php');
                     break;
+                case "destiny-book":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/books/destiny-book.php');
+                    break;
+                case "wish-book":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/books/wish-book.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
