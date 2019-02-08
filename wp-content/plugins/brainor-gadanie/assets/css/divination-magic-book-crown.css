@@ -1,0 +1,31 @@
+.divination-magic-book.crown-book {
+    background-image: url('../imgs/book/love-bg.jpg' ) !important;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.divination-magic-book.crown-book {
+    text-align: center;
+}
+
+.divination-magic-book .br-mb-question-row {
+    border-bottom: 0px !important;
+}
+
+.divination-magic-book .br-mb-question-row img {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.divination-magic-book .br-mb-question-row:hover {
+    border-bottom: 0px !important;
+}
+
+.divination-magic-book .br-mb-question-row:hover img {
+    border-bottom: 0px !important;
+}
+
+.divination-magic-book .br-mb-question-row .br-mb-question span {
+    font-style: normal !important;
+}

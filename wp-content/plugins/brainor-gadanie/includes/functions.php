@@ -97,6 +97,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "wish-book":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/books/wish-book.php');
                     break;
+                case "crown-book":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/books/crown-book.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
