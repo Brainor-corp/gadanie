@@ -1,0 +1,29 @@
+.divination-magic-book {
+    background-image: url('../imgs/book/book-bg.jpg');
+    background-repeat: repeat;
+    width: 100%;
+    padding: 30px 15px;
+}
+
+.divination-magic-book h1 {
+    text-align: center;
+}
+
+.divination-magic-book .br-mb-question-row {
+    margin-bottom: 25px;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+}
+
+.divination-magic-book .br-mb-question-row:hover {
+    border-bottom: 1px solid grey !important;
+}
+
+.divination-magic-book .br-mb-question-row .br-mb-question span {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.divination-magic-book .br-mb-question-row .br-mb-answers .br-mb-answer {
+    display: none;
+}
