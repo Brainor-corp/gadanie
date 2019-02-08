@@ -82,6 +82,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "na-jelanie-solitaire":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/solitaire/na-jelanie-solitaire.php');
                     break;
+                case "rekamye-solitaire":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/solitaire/rekamye-solitaire.php');
+                    break;
                 case "twins":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/twins/twins.php');
                     break;
