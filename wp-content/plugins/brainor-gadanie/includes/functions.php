@@ -100,6 +100,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "crown-book":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/books/crown-book.php');
                     break;
+                case "ball-of-destiny":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/rotate/ball-of-destiny.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
