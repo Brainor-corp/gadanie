@@ -20,7 +20,7 @@
 
 <script type="text/javascript" src="/wp-content/plugins/brainor-gadanie/assets/js/divination-rotate-destiny.js"></script>
 
-<div class="divination-rotate ball-of-destiny" id="<?php echo uniqid() ?>" data-step="36">
+<div class="divination-rotate ball-of-destiny" id="<?php echo uniqid() ?>" data-step="36" data-items="10">
     <div class="br-rotate-block">
         <div class="crc"></div>
         <div class="br-rt-arc">

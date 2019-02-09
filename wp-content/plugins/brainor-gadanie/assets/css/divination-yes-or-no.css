@@ -1,0 +1,27 @@
+.divination-rotate.rotate-yes-or-no {
+    background-image: url('../imgs/rotate/bg-space.jpg');
+    background-size: cover;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 2px black;
+    font-size: 1.5rem;
+}
+
+.divination-rotate.rotate-yes-or-no .br-rotate-block table,
+.divination-rotate.rotate-yes-or-no .br-rotate-block td {
+    border: 0px !important;
+}
+
+.divination-rotate.rotate-yes-or-no .br-rotate-block td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.divination-rotate.rotate-yes-or-no .br-rotate-block img {
+    max-height: 100%;
+}
+
+.divination-rotate.rotate-yes-or-no .br-rotate-block .br-rotate-pointer {
+    cursor: pointer;
+    display: inline-block;
+}

@@ -35,7 +35,7 @@
                     pointer.animateRotatePointer(pointer.data('current-rotate'), pointer.data('current-rotate') + 360, 1000, 'linear', round);
                 } else {
                     let steps = Math.floor(Math.random() * 10) + 1;
-                    let time = steps * 100;
+                    let time = steps * (1000 / divinationBlock.data('items'));
                     let angle = pointer.data('current-rotate') + divinationBlock.data('step') * steps;
                     console.log(angle);
                     pointer.animateRotatePointer(pointer.data('current-rotate'), angle, time, 'linear', function () {
