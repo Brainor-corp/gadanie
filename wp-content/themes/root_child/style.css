@@ -12,10 +12,15 @@ Version: 1.0.0
 
 .divination-content-area{
     width: 100%!important;
+    padding-right: 40px;
 }
 .entry-image img{
     width: 100%;
     height: auto;
+}
+.entry-image.divination-single-thumb{
+    width: 70%;
+    margin: 0 auto;
 }
 .clear-none .post-card:nth-child(odd) {
     clear: none!important;
