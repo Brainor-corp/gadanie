@@ -25,24 +25,48 @@
         <!-- Блок вопроса с ответами -->
         <div class="br-mb-question-row">
             <div class="br-mb-question">
-                <span>Загадайте желание и кликните..</span>
+                <span>Загадайте желание и кликните...</span>
             </div>
             <div class="br-mb-answers">
 
                 <div class="br-mb-answer">
-                    <span>Всё будет, но не сразу</span>
+                    <span>...Нет, но это будет к лучшему</span>
                 </div>
 
                 <div class="br-mb-answer">
-                    <span>В сутках 24 часа</span>
+                    <span>...До того времени многое еще должно измениться</span>
                 </div>
 
                 <div class="br-mb-answer">
-                    <span>Ещё ответ</span>
+                    <span>...Со временем</span>
                 </div>
 
                 <div class="br-mb-answer">
-                    <span>Другой ответ</span>
+                    <span>...Если ты не желаешь невозможного</span>
+                </div>
+
+                <div class="br-mb-answer">
+                    <span>...Возложи всю надежду свою на и изменчивость человеческого сердца, этот расчет верен и не обманет тебя.</span>
+                </div>
+
+                <div class="br-mb-answer">
+                    <span>...Старайся их не высказывать, действуй политичнее, тогда без труда получишь то что желаешь</span>
+                </div>
+
+                <div class="br-mb-answer">
+                    <span>...Это непременно случится</span>
+                </div>
+
+                <div class="br-mb-answer">
+                    <span>...Откажись от всякой недежды</span>
+                </div>
+
+                <div class="br-mb-answer">
+                    <span>...Если успеешь шепнуть его падающей звездочке</span>
+                </div>
+
+                <div class="br-mb-answer">
+                    <span>...То, чего ты желаешь, ничтожно в сравнении с тем, что ты получишь</span>
                 </div>
 
             </div>
