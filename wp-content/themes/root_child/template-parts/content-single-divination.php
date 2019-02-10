@@ -168,7 +168,7 @@ $share_bottom_hide      = 'checked' == get_post_meta( $post->ID, 'share_bottom_h
 <?php
 if ( 'checked' != get_post_meta( $post->ID, 'related_posts_hide', true ) ) {
     do_action( 'root_single_before_related' );
-    get_template_part( 'template-parts/related', 'posts' );
+    get_template_part( 'template-parts/related', 'posts-page' );
     do_action( 'root_single_after_related' );
 }
 ?>

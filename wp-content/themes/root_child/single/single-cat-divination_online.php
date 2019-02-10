@@ -100,7 +100,7 @@ $comments_hide    = 'checked' == get_post_meta( $post->ID, 'comments_hide', true
 
 			<?php
 
-				get_template_part( 'template-parts/content', 'single' );
+				get_template_part( 'template-parts/content', 'single-divination' );
 
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( root_get_option( 'structure_single_comments' ) == 'yes' && ! $comments_hide ) {
