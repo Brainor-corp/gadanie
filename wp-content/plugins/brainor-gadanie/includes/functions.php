@@ -112,6 +112,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "rotate-arrow-of-destiny":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/rotate/arrow-of-destiny.php');
                     break;
+                case "coffee":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/coffee/coffee.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
