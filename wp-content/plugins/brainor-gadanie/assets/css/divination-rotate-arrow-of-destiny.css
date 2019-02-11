@@ -1,0 +1,28 @@
+.divination-rotate.rotate-arrow-of-destiny {
+    background-image: radial-gradient(white 0%, lightgray 8%, black 30%);
+    color: red;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+.divination-rotate.rotate-arrow-of-destiny .br-rotate-block table,
+.divination-rotate.rotate-arrow-of-destiny .br-rotate-block td {
+    border: 0px !important;
+}
+
+.divination-rotate.rotate-arrow-of-destiny .br-rotate-block td {
+    vertical-align: middle;
+    text-align: center;
+    height: 400px;
+}
+
+.divination-rotate.rotate-arrow-of-destiny .br-rotate-block img {
+    max-height: 100%;
+    max-width: 60%;
+}
+
+.divination-rotate.rotate-arrow-of-destiny .br-rotate-block .br-rotate-pointer {
+    cursor: pointer;
+    display: inline-block;
+}
