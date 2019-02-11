@@ -28,7 +28,7 @@
             <div class="br-mb-question">
                 <span>Представьте Вашего возлюбленного, подумайте о нём несколько секунд и нажмите на Корону любви..</span>
                 <br>
-                <img src="/wp-content/plugins/brainor-gadanie/includes/templates/divinations/books/korona.png" alt="">
+                <img src="/wp-content/plugins/brainor-gadanie/assets/imgs/book/korona.png" alt="">
             </div>
             <div class="br-mb-answers">
 
