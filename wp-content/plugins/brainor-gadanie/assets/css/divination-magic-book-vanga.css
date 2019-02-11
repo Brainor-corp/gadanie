@@ -1,0 +1,60 @@
+.divination-magic-book.vanga-book {
+    background-image: url('../imgs/vanga/bg_vanga.gif' ) !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center;
+    color: white;
+    height: 380px;
+}
+
+.divination-magic-book.vanga-book .br-mb-questions {
+    background-image: url('../imgs/vanga/mirror4.png' );
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 300px;
+}
+
+.divination-magic-book.vanga-book {
+    text-align: center;
+}
+
+.divination-magic-book.vanga-book .br-mb-answers .br-mb-answer div {
+    max-width: 140px;
+    display: inline-block;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.divination-magic-book.vanga-book .br-mb-answers .br-mb-answer div img {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    max-width: 40px;
+}
+
+.divination-magic-book.vanga-book .br-mb-question-row {
+    border-bottom: 0px !important;
+    background-image: url('../imgs/vanga/cupv.png' );
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    height: 320px;
+    padding-top: 50px;
+}
+
+.divination-magic-book.vanga-book .br-mb-question-row img {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.divination-magic-book.vanga-book .br-mb-question-row:hover {
+    border-bottom: 0px !important;
+}
+
+.divination-magic-book.vanga-book .br-mb-question-row:hover img {
+    border-bottom: 0px !important;
+}
+
+.divination-magic-book.vanga-book .br-mb-question-row .br-mb-question span {
+    font-style: normal !important;
+}
