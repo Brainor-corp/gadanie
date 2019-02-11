@@ -1,16 +1,17 @@
 .divination-magic-book.vanga-book {
     background-image: url('../imgs/vanga/bg_vanga.gif' ) !important;
-    background-size: contain !important;
+    background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: center;
     color: white;
-    height: 380px;
+    height: 580px;
+    padding: 0px !important;
 }
 
 .divination-magic-book.vanga-book .br-mb-questions {
     background-image: url('../imgs/vanga/mirror4.png' );
-    background-position: center;
-    background-size: contain;
+    background-position: center 30px;
+    background-size: auto;
     background-repeat: no-repeat;
     height: 300px;
 }
@@ -20,7 +21,7 @@
 }
 
 .divination-magic-book.vanga-book .br-mb-answers .br-mb-answer div {
-    max-width: 140px;
+    max-width: 180px;
     display: inline-block;
     text-align: center;
     font-size: 0.8rem;
@@ -35,11 +36,12 @@
 
 .divination-magic-book.vanga-book .br-mb-question-row {
     border-bottom: 0px !important;
-    background-image: url('../imgs/vanga/cupv.png' );
+    background-image: url(../imgs/vanga/cupv.png);
     background-position: center bottom;
     background-repeat: no-repeat;
-    height: 320px;
-    padding-top: 50px;
+    height: 547px;
+    padding-top: 85px;
+    background-size: 495px;
 }
 
 .divination-magic-book.vanga-book .br-mb-question-row img {

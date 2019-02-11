@@ -23,7 +23,7 @@
 <div class="divination-magic-book vanga-book" id="<?php echo uniqid() ?>">
     <div class="br-mb-questions">
 
-        <!-- Блок вопроса с ответами -->
+        <!-- Блок с ответами -->
         <div class="br-mb-question-row">
             <div class="br-mb-answers">
 
@@ -47,7 +47,7 @@
             <div class="br-mb-question">
             </div>
         </div>
-        <!-- Конец блока вопроса с ответами -->
+        <!-- Конец блока с ответами -->
 
     </div>
 </div>

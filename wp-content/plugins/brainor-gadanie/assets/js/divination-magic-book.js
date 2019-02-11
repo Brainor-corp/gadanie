@@ -20,7 +20,7 @@
                 questionRow.find('.br-mb-answer').fadeOut(300);
 
                 let answersCount = questionRow.find('.br-mb-answer').length;
-                $(questionRow.find('.br-mb-answer')[Math.floor(Math.random() * answersCount)]).fadeIn(700, function () {
+                $(questionRow.find('.br-mb-answer')[Math.floor(Math.random() * answersCount)]).delay(300).fadeIn(700, function () {
                     questionRow.removeClass('showing');
                 });
             }
