@@ -18,25 +18,18 @@
  * @package Root
  */
 
-$related_count_mod = root_get_option( 'structure_page_related' );
-
-if ( ! empty( $related_count_mod  ) ) {
-
-    $related_count = 6;
-    if (is_numeric($related_count_mod) && $related_count_mod > -1) {
-        if ( $related_count_mod > 50 ) $related_count_mod = 50;
-        $related_count = $related_count_mod;
-    }
-    $args = array(
-        'orderby'      => 'description',
-        'order'        => 'ASC',
-    );
-    $tags = get_tags($args);
+$tags = get_terms( array(
+    'taxonomy'      => array( 'post_tag' ), // название таксономии с WP 4.5
+    'orderby'       => 'description',
+    'order'         => 'ASC',
+    'hide_empty'    => true,
+    'search'        => 'gadaniya-onlayn',
+) );
     foreach ($tags as $tag):
     $related_articles = get_posts(array(
         'numberposts' => '-1',
         'orderby' => 'rand',
-        'category_name' => 'divination_online',
+        'category_name' => 'gadaniya-onlayn',
         'post_type' => 'post',
         'tag__in' => $tag->term_id
     ));
@@ -68,6 +61,3 @@ if ( ! empty( $related_count_mod  ) ) {
 
         <?php endif; ?>
     <?php endforeach; ?>
-    <?php
-}
-?>
