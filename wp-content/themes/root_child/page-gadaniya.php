@@ -29,6 +29,7 @@ $breadcrumbs_hide = 'checked' == get_post_meta( $post->ID, 'breadcrumbs_hide', t
 			?>
 
 		</main><!-- #main -->
+
 	</div><!-- #primary -->
 
 <?php

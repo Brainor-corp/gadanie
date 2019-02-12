@@ -36,16 +36,16 @@ Version: 1.0.0
 }
 
 @media (min-width: 1200px){
-    .post-card.category-divination_online {
+    .post-card.category-gadaniya-onlayn {
         width: 330px;
     }
 }
 
 @media (min-width: 992px){
-    .posts-container--three-columns .post-card.category-divination_online {
+    .posts-container--three-columns .post-card.category-gadaniya-onlayn {
         width: calc(33% - 40px);
     }
-    .posts-container--four-columns .post-card.category-divination_online {
+    .posts-container--four-columns .post-card.category-gadaniya-onlayn {
         width: calc(25% - 50px);
     }
 }
