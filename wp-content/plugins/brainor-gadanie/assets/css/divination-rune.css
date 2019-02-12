@@ -1,0 +1,37 @@
+.divination-rune {
+    background-color: #c69c6c;
+    padding: 15px 10px;
+}
+
+.divination-rune .br-rn-runes {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.divination-rune button {
+    cursor: pointer;
+    background: none !important;
+    box-shadow: none !important;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: black;
+    width: 180px;
+}
+
+.divination-rune .br-rn-runes .br-rn-rune {
+    display: inline-block;
+}
+
+.divination-rune .br-rn-items .br-rn-item {
+    display: none;
+}
+
+.divination-rune .br-rn-items .br-rn-item img {
+    max-width: 200px;
+    height: auto;
+    float: left;
+    padding-top: 10px;
+    padding-right: 10px;
+}
