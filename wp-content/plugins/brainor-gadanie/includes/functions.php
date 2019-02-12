@@ -115,6 +115,9 @@ function br_divination_output ($attributes,  $content = null ) {
                 case "coffee":
                     require_once(BR_DIVINATION_DIR.'includes/templates/divinations/coffee/coffee.php');
                     break;
+                case "rune":
+                    require_once(BR_DIVINATION_DIR.'includes/templates/divinations/rune/rune.php');
+                    break;
                 default: echo '[divination_error: неизвестный слаг]';
             }
         }else{
