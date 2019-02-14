@@ -1,0 +1,93 @@
+.divination-vanga h1 {
+    text-align: center;
+}
+
+.divination-vanga .br-mb-question-row .br-mb-answers .br-mb-answer {
+    display: none;
+}
+
+.divination-vanga {
+    background-image: url('../imgs/vanga/bg_vanga.gif' ) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center;
+    color: white;
+    height: 580px;
+    padding: 0px !important;
+    width: 100%;
+    padding: 30px 15px;
+}
+
+.divination-vanga .br-mb-questions {
+    background-image: url('../imgs/vanga/mirror4.png' );
+    background-position: center 30px;
+    background-size: auto;
+    background-repeat: no-repeat;
+    height: 300px;
+}
+
+.divination-vanga {
+    text-align: center;
+}
+
+.divination-vanga .br-mb-answers .br-mb-answer div {
+    max-width: 180px;
+    display: inline-block;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.divination-vanga .br-mb-answers .br-mb-answer div img {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    max-width: 40px;
+}
+
+.divination-vanga .br-mb-question-row {
+    border-bottom: 0px !important;
+    background-image: url(../imgs/vanga/cupv.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    height: 547px;
+    padding-top: 85px;
+    background-size: 495px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.divination-vanga .br-mb-question-row .br-mb-answer img {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.divination-vanga .br-mb-question-row:hover {
+    border-bottom: 0px !important;
+}
+
+.divination-vanga .br-mb-question-row:hover img {
+    border-bottom: 0px !important;
+}
+
+.divination-vanga .br-mb-question-row .br-mb-question span {
+    font-style: normal !important;
+    font-weight: bold;
+}
+
+.divination-vanga .br-mb-question-row .br-mb-cup {
+    text-align: center;
+    position: absolute;
+    bottom: -5px;
+    overflow-x: hidden;
+    left: -999px;
+    right: -999px;
+    margin: auto;
+}
+
+.divination-vanga .br-mb-question-row .br-mb-cup img {
+    width: 495px;
+    max-width: unset !important;
+    display: none;
+}
