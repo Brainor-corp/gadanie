@@ -1,0 +1,37 @@
+.divination-coffee-new .br-cf-text {
+    text-align: center;
+}
+
+.divination-coffee-new .br-cf-text span {
+    font-size: 1.5rem;
+}
+
+.divination-coffee-new .br-cf-imgs .br-cf-item,
+.divination-coffee-new .br-cf-imgs img:nth-child(2),
+.divination-coffee-new .br-cf-imgs img:nth-child(3),
+.divination-coffee-new .br-cf-imgs img:nth-child(4) {
+    display: none;
+}
+
+.divination-coffee-new .br-cf-imgs img:nth-child(1),
+.divination-coffee-new .br-cf-imgs img:nth-child(2),
+.divination-coffee-new .br-cf-imgs img:nth-child(3),
+.divination-coffee-new .br-cf-imgs img:nth-child(4) {
+    cursor: pointer;
+}
+
+.divination-coffee-new .br-cf-control {
+    text-align: center;
+}
+
+.divination-coffee-new .br-cf-control button {
+    background-color: transparent;
+    border: 2px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+.divination-coffee-new .br-cf-control button:hover {
+    background-color: lightgrey;
+}

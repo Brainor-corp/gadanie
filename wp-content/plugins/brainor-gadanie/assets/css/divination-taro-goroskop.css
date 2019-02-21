@@ -1,5 +1,5 @@
 .divination.goroskop .desk {
-    height: 450px !important;
+    /*height: 600px !important;*/
 }
 
 .divination.goroskop .desk .desk-cards {
@@ -9,7 +9,7 @@
 }
 
 .divination.goroskop .taro_bg {
-    height: 750px !important;
+    /*height: 900px !important;*/
 }
 .divination.goroskop #desk-card-1{
     margin-top: -230px;
