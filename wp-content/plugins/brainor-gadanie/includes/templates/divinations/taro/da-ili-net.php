@@ -84,7 +84,7 @@ echo $wpdb->last_error;
                 <span class="ca text-white" id="currentAction"></span>
             </div>
             <div class="t_card" id="divination">
-                <?php for($i = 0; $i < 20; $i++) { ?>
+                <?php for($i = 0; $i < 78; $i++) { ?>
                     <a href="#" class="hand-card" onclick="return false"></a>
                 <?php } ?>
             </div>
